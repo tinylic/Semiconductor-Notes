@@ -9,6 +9,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz,mathpazo}
+\usepackage{float}
+\usepackage{graphix}
 \usetikzlibrary{shapes.geometric, arrows}
 %\usepackage{flowchart}
 \begin{document}
@@ -30,7 +32,15 @@
             \item {\textbf{基矢}\quad 以原胞共顶点的三条边作为三个矢量$\vec{a_1},\vec{a_2},\vec{a_3}$，并以其中一个格点为原点，则布拉菲格子的格点可以表示为\,$\vec{a}=L_1\vec{a_1}+L_2\vec{a_2}+L_3\vec{a_3}$\,,则称\,$\vec{a_1},\vec{a_2},\vec{a_3}$\,为基矢}
             \item {\textbf{点阵}\quad 让$u,v,w$取遍所有整数值，由\,$\vec{\acute{r}} = \vec{r} + u\vec{a}+v\vec{b}+w\vec{c}$\,所确定的一簇点\,$\vec{\acute{r}}$\,就定义了一个点阵}
             \item {\textbf{晶列}\quad 点阵中所有阵点都位于一系列相互平行的直线上，这些直线系称为晶列}
-            \item {\textbf{晶向与晶向指数}\quad 晶列的方向即为晶向，晶向指数$[mnp]$为晶向矢量在晶轴上投影的互质整数，同类晶向记为$<mnp>$}
+            \item {\textbf{晶向与晶向指数}\quad 晶列的方向即为晶向，晶向指数$[mnp]$为晶向矢量在晶轴上投影的互质整数，同类晶向记为$<mnp>$
+					\begin {figure}[H]
+						\centering
+						\includegraphics[width=7cm]{Ch1Pic0.png}
+						\caption{Endpoint detection}
+					\end {figure}
+					\begin{figure}
+						\centerline{\includegraphics[scale = 0.45]{Ch1Pic0.png}}
+					\end{figure}}
             \item {\textbf{晶面}\quad 点阵中所有阵点全部位于一系列相互平行等距的平面上，这样的平面称为晶面}
             \item {\textbf{晶面指数}\quad 晶面指数$h,k,l$是晶面与三晶轴截距$r,s,t$的倒数的互质整数，也称为密勒指数}
             \item {\textbf{简单与复式格子}\quad    简单格子:基元只有一个原子的晶格\quad 复式格子:基元包含两个或两个以上原子\newline 如果晶体由一种原子组成，但在晶体中原子周围的情况不同，这样的晶格也是复式格子（如单晶Si）}
@@ -102,7 +112,7 @@
         $$\psi_{\vec{k}}(\vec{r}) = exp(i \vec{k} \cdot \vec{r}) = exp[i(k_x x + k_y y + k_z z)]$$
         $$\therefore \psi_{\vec{k}}(\vec{r}) = \frac{\bar h ^ 2}{2m} k ^ 2 = \frac{\bar h ^ 2}{2m} \left(k_x ^ 2 + k_y ^ 2 + k_z ^ 2 \right), k = \frac{2 \pi}{\lambda}$$
         \begin{itemize}
-            \item   三维情况下N个电子处在基态时，每个被占据轨道课看做k空间内一个球内的点
+            \item   三维情况下N个电子处在基态时，每个被占据轨道可看做k空间内一个球内的点
             \item   球面的能量为费米能，费米面上波矢的大小为$k_F$,最小体积元为$\frac{2 \pi}{L} ^ 3$，即这个体积中只有一个允许波矢
             \item  轨道总数 $$N = 2 \times \left( \frac{4}{3}\pi k_F^3 \div \left(\frac{2\pi}{L} ^ 3\right)\right) = \frac{V}{3\pi ^ 2} k_F^3, V = L ^ 3$$
                 $$\therefore k_F = \left(\frac{3\pi ^ 2 N}{V}\right) ^ {\frac{1}{3}}, \varepsilon_F = \frac{\bar h ^ 2}{2m}\left(\frac{3\pi ^ 2 N}{V}\right) ^ {\frac{2}{3}},\mbox{仅与粒子浓度有关}$$

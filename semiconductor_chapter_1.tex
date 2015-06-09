@@ -9,6 +9,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz,mathpazo}
+\usepackage{float}
+%\usepackage{graphix}
 \usetikzlibrary{shapes.geometric, arrows}
 %\usepackage{flowchart}
 \begin{document}
@@ -31,6 +33,11 @@
             \item {\textbf{点阵}\quad 让$u,v,w$取遍所有整数值，由\,$\vec{\acute{r}} = \vec{r} + u\vec{a}+v\vec{b}+w\vec{c}$\,所确定的一簇点\,$\vec{\acute{r}}$\,就定义了一个点阵}
             \item {\textbf{晶列}\quad 点阵中所有阵点都位于一系列相互平行的直线上，这些直线系称为晶列}
             \item {\textbf{晶向与晶向指数}\quad 晶列的方向即为晶向，晶向指数$[mnp]$为晶向矢量在晶轴上投影的互质整数，同类晶向记为$<mnp>$}
+					\begin {figure}[H]
+						\centering
+						\includegraphics[width=7cm]{Ch1Pic0.png}
+						\caption{晶格指数}
+					\end {figure}
             \item {\textbf{晶面}\quad 点阵中所有阵点全部位于一系列相互平行等距的平面上，这样的平面称为晶面}
             \item {\textbf{晶面指数}\quad 晶面指数$h,k,l$是晶面与三晶轴截距$r,s,t$的倒数的互质整数，也称为密勒指数}
             \item {\textbf{简单与复式格子}\quad    简单格子:基元只有一个原子的晶格\quad 复式格子:基元包含两个或两个以上原子\newline 如果晶体由一种原子组成，但在晶体中原子周围的情况不同，这样的晶格也是复式格子（如单晶Si）}
@@ -39,7 +46,11 @@
             \item {\textbf{原胞与晶胞}\quad 原胞(primitive cell),固体物理元胞:基矢$a,b,c$ 构成的平行六面体。最小的重复单元，只反映周期性的特征\newline
                 晶胞，结晶学元胞:能够最大限度反映晶格对称性质 (周期性和对称性) 的最小单元，不一定最小。}
             \item   {\textbf{金刚石结构与闪锌矿结构}}\quad    金刚石结构是一种由相同原子构成的复式晶格，它是由两个面心立方晶格沿立方对称晶胞的体对角线错开1/4长度套构而成。常见的半导体中$Ge，Si，\alpha-Sn$（灰锡）都属于这种晶格。
-                \newline
+					\begin {figure}[H]
+						\centering
+						\includegraphics[width=7cm]{Ch1Pic1.png}
+						\caption{金刚石结构}
+					\end {figure}
                 闪锌矿结构与金刚石结构的唯一区别是它含有两种不同的原子（$GaAs,InSb,GaP$等化合物）。
         \end{itemize}
 \section{倒易点阵与晶体衍射}
@@ -63,6 +74,11 @@
                 $$  \mbox{简单立方的倒易点阵仍是简单立方，第一布里渊区是立方体}$$
                 $$  \mbox{体心立方的倒易点阵仍是面心立方，第一布里渊区是正菱形十二面体}$$
                 $$  \mbox{面心立方的倒易点阵仍是体心立方，第一布里渊区是截角八面体}$$
+				\begin {figure}[H]
+						\centering
+						\includegraphics[width=7cm]{Ch1Pic2.png}
+						\caption{面心立方第一布里渊区}
+					\end {figure}
         \end{itemize}
 \subsection{晶体衍射}
     \begin{itemize}
@@ -91,7 +107,7 @@
         \end{itemize}
     \subsection{费米能}
         \begin{itemize}
-            \item   {\textbf{费米能$\epsilon_F$}基态下最高被充满能级的能量}
+            \item   {\textbf{费米能$\varepsilon_F$}基态下最高被充满能级的能量}
             \item   费米-狄拉克分布函数给出了理想气体处于热平衡状态时能量为$\varepsilon$的轨道被占据的几率
             $$f(\varepsilon) = \frac{1}{e ^ \frac{\varepsilon - \mu}{k T} + 1}$$
             $\mu$为化学势，$\mu$的选择需要总能计算出系统中粒子的总数，即等于$N$
