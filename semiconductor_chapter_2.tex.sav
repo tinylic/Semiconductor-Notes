@@ -1,0 +1,93 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,mathpazo}
+\usepackage{ulem}
+\usepackage{multicol}
+\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{flowchart}
+\begin{document}
+
+\begin{CJK*}{GBK}{hei}
+\begin{spacing}{2}
+\title{\CJKfamily{kai}半导体中的电子状态}
+\author{\CJKfamily{kai}复旦大学~~微电子学系\\13307130163\\\CJKfamily{kai}李琛}
+\maketitle
+\tableofcontents
+\newpage
+\end{spacing}
+\begin{spacing}{1.5}
+\section{能带的形成}
+    \begin{itemize}
+        \item   {\textbf{近电子模型} \quad   能带电子仅仅受到离子实的周期性势场微扰}
+        \item   {\textbf{能带的起因}
+            \begin{itemize}
+                \item   考虑周期性势场后必须考虑布拉格衍射，此时电子的波函数是驻波而不是行波
+                \item   驻波使电子集聚在不同的空间区域内，具有不同的势能值
+                \item   纯粹行波的电荷密度为恒量，但平面波的线性组合却不是，因此电子势能也不同
+                \item   由于电子在正离子场内的势能为负值，$U(+) < U < U(-)$
+                \item   若$U(+)$与$U(-)$的能量相差$E_g$，则能隙宽度为$E_g$
+            \end{itemize}}
+        \item   {\textbf{布洛赫定理} \quad   对于周期性势场的薛定谔方程，解必定遵从以下形式：
+                $$\varphi_{\vec{k}}(\vec{r}) = u_{\vec{k}}(\vec{r})e^{i \vec{k} \cdot \vec{r}},\mbox{其中$u_k(r)$具有晶体点阵的周期}$$}
+        \item   克隆尼克-彭奈模型即为一维周期性方阱势场
+        \item   
+            \begin{itemize}
+                \item   第一布里渊区内允许波矢总数 = 晶体中初基晶胞数N
+                \item   同一能量电子可以有两个相反自旋取向
+            \end{itemize}
+            $\Rightarrow $每个能带具有2N个独立轨道
+        \item   绝缘体和半导体只有一系列满带和一系列空带，不存在半满带，最上面的满带叫价带，最下面的空带叫导带。导带底与价带顶之间的能量间隙称为禁带。如果除了一个或两个能带几乎空着或几乎充满外，其余所有能带都充满，则晶体为半导体或半金属
+    \end{itemize}
+\section{半导体中的载流子运动及其有效质量}
+    \begin{itemize}
+        \item   运动公式：
+        $$F = \frac{dP}{dt} = \hbar\frac{dk}{dt}$$
+        $$V = \frac{1}{\hbar}\nabla_k E(k)$$
+        $\hbar k$即为准动量
+        \item   外场下晶体电子的运动：
+        $$dE = \frac{dE}{dk}\cdot dk = \hbar v dk$$
+        $$a = \frac{dv}{dt} = \frac{1}{\hbar}\frac{d}{dt}\left(\frac{dE}{dk}\right)
+            = \frac{1}{\hbar}\frac{d^2E}{dk^2}\frac{dk}{dt}
+            = \frac{1}{\hbar}\frac{d^2E}{dk^2}F$$
+        $$\mbox{令}m^{*} = \frac{\hbar^2}{\left(\frac{d^2E}{dk^2}\right)}\mbox{为电子有效质量}$$
+        $$\mbox{则}a = \frac{F}{m^{*}},\frac{1}{m^{*}}\mbox{为一三维可对角化的张量}$$
+        \item   有效质量概括了半导体内部势场的作用, 晶体电子可近似为具有m* 的近自由电子。有效质量可以直接由实验确定
+        \item   能带越窄，$\left(\frac{d^2E}{dk^2}\right)$ 越小，有效质量越大,“越胖越重”
+    \end{itemize}
+\section{本征半导体的导电机构与空穴}
+    \subsection{本征半导体的导电机构}
+        \begin{itemize}
+            \item   本征半导体在绝对零度时导带为空，由一个能隙$E_g$与价带隔开
+            \item   温度升高时，电子由价带被激发到导带，电子与空穴都对电导率有贡献
+            \item   半导体中有两种载流子，而金属中只有一种
+        \end{itemize}
+    \subsection{空穴}
+        \begin{itemize}
+            \item   满带情况下电流为0，因此引入空穴表示大规模电子的运动
+            \item   空穴等价为一个正电荷，正有效质量的粒子，只出现在价带顶
+        \end{itemize}
+\section{回旋共振与等能面}
+    \subsection{回旋共振}
+     磁场中的电子在k空间内沿垂直能量E的梯度的方向运动，因此电子在等能面上运动。其角频率为$\omega_c = e B / m^{*}$\\
+    可以利用回旋共振来测量导带底或价带顶附近的等能面形状及有效质量。
+    \subsection{等能面方程}\
+    通过泰勒展开求解
+    $$$$
+\section{硅与锗的能带结构}
+\section{化合物半导体的能带结构}
+\section{杂质与缺陷能级}
+    \subsection{硅、锗中的杂质能级}
+    \subsection{缺陷与位错能级}
+\clearpage
+
+\end{spacing}
+\end{CJK*}
+\end{document}

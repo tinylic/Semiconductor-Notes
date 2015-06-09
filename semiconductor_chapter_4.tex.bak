@@ -1,0 +1,81 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,mathpazo}
+\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{flowchart}
+\begin{document}
+
+\begin{CJK*}{GBK}{hei}
+\begin{spacing}{2}
+\title{\CJKfamily{kai}输运现象}
+\author{\CJKfamily{kai}复旦大学~~微电子学系\\13307130163\\\CJKfamily{kai}李琛}
+\maketitle
+\tableofcontents
+\newpage
+\end{spacing}
+\begin{spacing}{2}
+\section{\CJKfamily{hei}\textmd{电导率}}
+
+        \begin{itemize}
+            \item   $\because  V = V_0 +at = V_0 + \frac{eE}{m}t, \bar{V_0} = 0
+                \newline
+                    \therefore V_d = \bar{V_0} = \frac{eE}{m}t,\mbox{即}V_d = \frac{e\tau}{m}E, \tau\mbox{为平均自由运动时间}$
+            \item   $I = nvsq \rightarrow j = nqV_d$,又由欧姆定律$j = \sigma E$\newline
+                    又$V_d = \frac{e\tau}{m}E$，令迁移率$\mu = \frac{e\tau}{m}$\newline
+                    则$\sigma = nq\mu = nq\mu_n + pq\mu_p$
+        \end{itemize}
+    \section{\textmd{载流子的散射}}
+        \begin{itemize}
+            \item   若没有散射，在电场中的电子的速度会变得无穷大，也会发生bloch振荡。\newline
+                    载流子在运动中，由于晶格热振动和电离杂质以及其他因素的影响，不断遭到散射，电场不可能使之无限加速。\newline
+                    散射的根本原因：周期性势场被破坏。由于附加势场的作用，使能带中的电子发生在不同k状态间的跃迁。
+            \item {\textbf{平均自由时间}}
+                \begin{itemize}
+                    \item   实际上自由载流子在两次散射之间才真正是自由运动的，其连续两次散射间自由运动的平均路程称为平均自由程，而平均时间$\tau$ 称为平均自由时间。
+                    \item   令$N(t)$为在$t$时刻所有未受到散射的电子数，$P$为散射几率，即单位时间内受到散射的次数,则
+                $\newline N(t)Pdt = N(t) - N(t + dt) = -\frac{dN(t)}{dt}\cdot dt \\
+                \because N(t) = N_0exp(-Pt) = N_0exp(-t/\tau),\\
+                \mbox{平均自由时间}\tau = \frac{1}{N_0}\int_0^\infty {t P N_0 exp(-Pt) dt} = \frac{1}{P}$
+                    \item   实际情况中，$\tau$为能量的函数，即$\tau = \tau(E)$\\
+                    $\therefore <\tau(E)> = \frac{\int_\tau(E)g(E)f(E)dE}{n},\mbox{g(E)是能量态密度，f(E)是费米函数}$
+                \item   \textbf{$\tau$的物理意义}
+                载流子的自由时间遵循统计分布，但简单地可以认为所有电子从时间$ t = 0$ 开始被加速“自由”地运动，平均来说当 $t=\tau$时，电子受到一次散射，因此{\large $\newline
+                \therefore\bar V_d = -\frac{qE}{m^{*}_n}\tau_n
+                \therefore \mu_n = \frac{e\tau_n}{m^{*}_n}, \sigma_n = \frac{ne^2\tau}{m^{*}_n}$}
+                \end{itemize}
+            \item   \textbf{电导有效质量}\\
+                    以硅为例，{\Large $j = n q \mu_nE\newline
+                    \because    \mu_n = \frac{1}{3}(\mu_l + 2 \mu_t), \mu_l = \frac{q\tau}{m_l^{*}}, \mu_t = \frac{q\tau}{m_t^{*}}\newline
+                    \therefore  \mu_n = \frac{e\tau_n}{m^{*}_{cn}}, \frac{1}{m^{*}_{cn}} = \frac{1}{3}\left(\frac{1}{m_l} + \frac{2}{m_t}\right)\newline
+                    \quad \mu_p = \frac{ e \tau_p } { m^{*}_{cp} }, \frac{1} { m^{*}_{cp} } = \frac{ (m^{*}_{cl}) ^ {1/2} + (m^{ * }_{ ch }) ^ { 1/2 } } {(m^{*}_{cl}) ^ { 3/2 } + (m^{ * }_{ ch }) ^ { 3/2 } }$}
+
+            \item \textbf{电离杂质散射}\\
+                    散射几率P和杂质浓度大体成正比，和能量的3/2次方成反比\\
+                    由于能量与温度成正比，因此在温度较低时，电离杂质有较强的散射作用
+                    {\Large $\mu_i\propto\frac{T^{3/2}}{N_i}$}\\
+                    $N_i$ 越大，散射几率越大\\
+                    $T$ 越高，载流子平均热运动速度越大，散射几率越小.
+
+            \item \textbf{晶格散射}\\
+                    格波：晶格原子的本征运动称为格波。\\
+                    声学波：长波极限下，同一原胞两个不等价原子振动方向相同。\\
+                    光学波：长波极限下，同一原胞两个不等价原子振动方向相反。\\
+                    声子：格波能量量子化，作为玻色子处理，引入“声子”表示晶格振动能量量子化的单元，即晶格振动能量的量子。\\
+                    对于Si，Ge等半导体只考虑纵声学波对电子的散射
+                    {\Large $\mu_s\propto T^{2/3}$}\\
+                    $T$ 越高，散射几率越大.
+         \end{itemize}
+    \section{迁移率、电阻率与杂质浓度和温度的关系}
+\clearpage
+
+\end{spacing}
+\end{CJK*}
+\end{document}

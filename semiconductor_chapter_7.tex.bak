@@ -1,0 +1,56 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,mathpazo}
+\usepackage{ulem}
+\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{flowchart}
+\begin{document}
+
+\begin{CJK*}{GBK}{hei}
+\begin{spacing}{2}
+\title{\CJKfamily{kai}金半接触}
+\author{\CJKfamily{kai}复旦大学~~微电子学系\\13307130163\\\CJKfamily{kai}李琛}
+\maketitle
+\tableofcontents
+\newpage
+\end{spacing}
+\begin{spacing}{1.5}
+\section{金半接触能级图}
+    \subsection{金属与半导体的功函数}
+        \begin{itemize}
+            \item   {\textbf{功函数}\quad 真空能级$E_0$和费米能级$E_F$之差\quad $W = E_0 - E_F$}
+            \item   {\textbf{半导体的亲和能$\chi$}\quad 真空能级$E_0$和导带底$E_C$之间的能量差\quad $\chi = E_0 - E_C$\newline Si的电子亲和能：4.05eV}
+            \item   金属的功函数和半导体的亲和能是固定的，但是半导体的功函数会随掺杂浓度不同而改变
+        \end{itemize}
+    \subsection{接触电势差}
+        \begin{itemize}
+            \item   $D$很大时 接触电势差:\quad $\phi_{ms} = \phi_m - \phi_s = \frac{1}{q}(W_m - W_s)$
+            \item   $D = 0$时，肖特基势垒$ q \phi_{ns} =  W_m - \chi, qV_D = W_m - W_s$
+            \item   阻挡层：高阻，整流\quad 反阻挡层：低阻，欧姆
+        \end{itemize}
+    \subsection{表面态对接触势垒的影响}
+    \subsection{金半接触的静电特性}
+    \subsection{外加偏压的影响}
+\section{金半接触的整流输运理论}
+    \subsection{扩散电流}
+    \subsection{热电子发射电流}
+    \subsection{隧穿电流和镜象力的影响}
+
+\section{少子注入与欧姆接触}
+    \subsection{少子注入}
+    \centerline{少子注入比 $\gamma = \frac{J_p}{J} = \frac{J_p}{J_p + J_n}$}
+    \subsection{欧姆接触}
+            当半导体高掺杂时，势垒很薄，这时电子隧穿效应为主，此时金半接触表现出电阻性质，称为欧姆接触.此时$J \propto V$
+\clearpage
+
+\end{spacing}
+\end{CJK*}
+\end{document}

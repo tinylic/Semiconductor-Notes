@@ -1,0 +1,211 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,mathpazo}
+\usepackage{ulem}
+\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{flowchart}
+\begin{document}
+
+\begin{CJK*}{GBK}{hei}
+\begin{spacing}{2}
+\title{\CJKfamily{kai}pn结}
+\author{\CJKfamily{kai}复旦大学~~微电子学系\\13307130163\\\CJKfamily{kai}李琛}
+\maketitle
+\tableofcontents
+\newpage
+\end{spacing}
+\begin{spacing}{1.5}
+\section{平衡pn结}
+        \subsection{pn结的形成}
+            \begin{itemize}
+                \item   {\textbf{突变结}\quad 载流子浓度高，较浅\newline$x < x_j, N(x) = N_A - N_D$;\quad$x > x_j, N(x) = N_D$\newline$N_A >> N_D \rightarrow p^+-n$ 结\quad$N_D >> N_A n^+-p$ 结 }
+                \item   {\textbf{缓变结}\quad 载流子浓度低，较深\quad$N_D - N_A = \alpha_j(x - x_j)$}
+            \end{itemize}
+        \subsection{空间电荷区}
+            载流子浓度梯度$\Rightarrow$扩散$\Rightarrow$破坏电中性$\Rightarrow$ 自建电场
+            $\Rightarrow$漂移电流$\Rightarrow$动态平衡$\Rightarrow$零净电流
+            \newline \centerline{    $J_n = J_{n,diff} + J_{n,drift} = 0, J_p = J_{p,diff} + J_{p,drift} = 0$}
+        \subsection{平衡结中费米能级}
+            平衡结中费米能级为一条直线，推导如下:
+            $$\because n_0 = n_i exp\left(\frac{E_F - E_i}{kT}\right),
+            E = -\frac{dV(x)}{dx} = \frac{1}{q}\frac{dE_i}{dx}$$
+            $$\therefore \frac{dn_0}{dx} = \frac{n_0}{k_BT}\left(\frac{dE_F}{dx} - \frac{dE_i}{dx}\right)$$
+            $$\therefore \frac{dn_0}{dx} = -\frac{n_0}{k_BT}\left(\frac{dE_F}{dx} - qE\right)$$
+            $$\because  J_n = qn_0\mu E + qD_n\frac{dn_0}{dx}, \frac{D_n}{\mu_n} = \frac{k_BT}{q}$$
+            $$\therefore    J_n = \mbox{\sout{$qn_0\mu E$}} - \mbox{\sout{$qD_nn_0\frac{qE}{kT}$}} + n_0 \frac{qD_n}{kT}\frac{dE_F}{dx} = 0$$
+            $$\therefore \frac{dE_F}{dx} = 0, \mbox{得证}$$
+        \subsection{pn结接触电势差}
+            $$\because qV_D = E_{F(n)} - E_{F(p)}$$
+            $$\left\{
+                \begin{aligned}
+                    E_{F(n)} = E_i + kT ln(N_D / n_i)\\
+                    E_{F(p)} = E_i - kT ln(N_A / n_i)\\
+                \end{aligned}
+            \right.$$
+            $$\therefore V_D = \frac{kT}{q}ln\left(\frac{N_A N_D}{n_i^2}\right)$$
+            对于Si, $V_D \approx 0.7V$\quad 对于Ge, $V_D \approx 0.3V$
+        \subsection{pn结载流子分布}
+            \centerline{$n_{n0}$:电中性n型区的电子浓度\quad$p_{p0}$:电中性p型区的空穴浓度}
+            \centerline{$n_{p0}$:电中性p型区的电子浓度\quad$p_{n0}$:电中性n型区的空穴浓度}
+            $$n(x) = n_{p0}exp\left(\frac{qV(x)}{kT}\right), p(x) = p_{p0}exp\left(-\frac{qV(x)}{kT}\right)$$
+            \centerline{\textbf{耗尽层近似}\quad 势垒区中全部载流子被耗尽，可忽略}
+\section{pn结电流电压特性}
+    \subsection{平衡pn结静电特性}
+    思路：$$\begin{aligned}
+                &\mbox{利用耗尽层近似求出空间电荷密度}\rho(x)\\
+                &\mbox{利用泊松方程积分}\rho(x)\mbox{求出}E(x)\\
+                &\mbox{对}E(x)\mbox{积分求出}V(x)\\
+                &\mbox{由玻尔兹曼统计得到}n(x)
+            \end{aligned}$$
+    对于突变结$p^+n$\\
+    电荷分布$$\rho(x) = q(N_D + N_A + p - n) = \left\{
+                \begin{aligned}
+                    &\rho(x) = -q N_A, -x_p \le x \le 0\\
+                    &\rho(x) = q N_D, 0 \le x \le x_n\\
+                \end{aligned}
+            \right.$$
+    泊松方程
+    $$ \frac{d^2V(x)}{dx^2} = - \frac{\rho(x)}{\varepsilon_0 \varepsilon_r} = -\frac{dE}{dx}$$
+    边界条件
+    $$E(-x_p) = E(x_n) = 0$$
+    $$V(-x_p) = 0, V(x_n0) = V_D$$
+    $$\therefore    E(x) = \int \frac{\rho(x)}{\varepsilon_0 \varepsilon_r}dx$$
+    $$E_p(x) = -\frac{q N_A}{\varepsilon_0 \varepsilon_r}(x + x_p), E_n(x) = -\frac{q N_D}{\varepsilon_0 \varepsilon_r}(x_n - x)$$
+    $$\therefore V(x) = -\int E(x)dx$$
+    $$V_p(x) = \frac{q N_A}{\varepsilon_0 \varepsilon_r}(x + x_p) ^ 2, V_n(x) = V_D - \frac{q N_D}{\varepsilon_0 \varepsilon_r}(x - x_n) ^ 2$$
+    $x = 0$处，电场强度最大
+    $$E_M =  -\frac{q N_A}{\varepsilon_0 \varepsilon_r}x_p = -\frac{q N_D}{\varepsilon_0 \varepsilon_r}x_n$$
+    $$\therefore \frac{x_n}{x_p} = \frac{N_A}{N_D}\mbox{（正负电荷总量相等）}$$
+    $x = 0$处，$V_p(x) = V_n(x)$
+    $$V_D = \frac{q N_A}{2\varepsilon_0 \varepsilon_r}x_p^2 + \frac{q N_D}{2\varepsilon_0 \varepsilon_r} x_n^2$$
+    $$\because X_D = x_p + x_n, \frac{x_n}{x_p} = \frac{N_A}{N_D}$$
+    $$\therefore X_D = \sqrt{\frac{2\varepsilon_0 \varepsilon_r(N_A + N_D)V_D}{q N_A N_D}}$$
+    $$p^+n: X_D = \sqrt{\frac{2\varepsilon_0 \varepsilon_r V_D}{q N_D}} \approx x_n;\qquad
+    n^+p: X_D = \sqrt{\frac{2\varepsilon_0 \varepsilon_r V_D}{q N_A}} \approx x_p$$
+    对于线性缓变结的求解思路相同
+    \subsection{非平衡pn结能带图}
+        正偏压下，势垒降低，变窄；反偏压下，势垒升高，变宽\\
+        一般只考虑正偏压：
+            \begin{itemize}
+                \item   势垒高度降低为$q(V_D - V)$
+                \item   $I_{diff} > I_{drift}$，少子注入p区和n区
+                \item   不存在统一费米能级
+            \end{itemize}
+    \subsection{理想pn结的J-V特性}
+        前提条件：
+        \begin{itemize}
+            \item   小注入条件：注入的少子浓度比平衡多子浓度小得多
+            \item   突变耗尽层条件：耗尽层中载流子浓度非常小，外加电压和接触电势差多数降在耗尽层上
+            \item   通过耗尽层的电子和空穴电流为常量，不考虑载流子在耗尽层中的产生和复合
+            \item   忽略扩散区和中性区的电场和电压
+            \item   玻尔兹曼边界条件：在耗尽层两端，载流子分布满足玻尔兹曼统计分布
+        \end{itemize}
+        $$J = J_p(x_n) + J_n(x_n)$$
+        $$\mbox{若通过空间电荷区不发生复合}, J = J_p(x_n) + J_n(x_p)$$
+        $$\mbox{又由一维稳定扩散情况} J = \frac{q D_p}{L_p}\Delta p(x_n) + \frac{q D_n}{L_n} \Delta n(x_p)$$
+        $$\mbox{解连续性方程，得}\Delta p(x_n) = p_{n0}(e^{\frac{q V}{k T}} - 1),\Delta n(x_p) = n_{p0}(e^{\frac{q V}{k T}} - 1),$$
+        $$\mbox{令}J_s = \left(\frac{q D_p p_{n0}}{L_p} + \frac{q D_n n_{p0}}{L_n}\right),
+        \mbox{得到shockley equation\quad}J = J_s\left[exp\left(\frac{qV}{kT}\right) - 1\right]$$
+        Law of Junction:
+        $$p_{zone} = n_i exp\left(\frac{E_i - E_{Fp}}{k_B T}\right),n_{zone} = n_i exp\left(\frac{E_{Fn} - E_i}{k_B T}\right)$$
+        在p区、n区、空间电荷区都适用\\
+        PS:空间电荷区中$$\because q V = E_{Fn} - E_{Fp} \therefore pn = n_i^2 exp\left(\frac{qV}{k_BT}\right)$$
+    \subsection{非理想pn结}
+        \subsubsection{势垒区的产生与复合}
+            复合率$$U = \frac{N_t r(np - n_i^2)}{n + p + 2n_i},
+            np = n_i^2 exp \left(\frac{E_F^n - E_F^p}{k_BT} = n_i^2 exp(qV / k_BT)\right)$$
+            \begin{itemize}
+                \item 正偏压下，$n = p = n_i ^ 2 exp(qv / 2 k_B T)$
+                $$\therefore U = \frac{n_i}{2\tau}\frac{exp\left(\frac{qV}{k_B T} - 1\right)}{exp\left(\frac{qV}{2 k_B T} - 1\right)} = \frac{n_i}{2\tau}exp\left(\frac{qV}{2 k_B T}\right)$$
+                $$\therefore J_r = \int_{-x_p}^{x_n}q U dx = \frac{q n_i X_D}{2\tau}exp\left(\frac{q V}{2 k T}\right)$$
+                $$\mbox{又 扩散电流}J_{fd} = \frac{q D_p n_i^2}{L_p N_D}exp\left(\frac{q V}{k T}\right)$$
+                $$\therefore \frac{J_{fd}}{J_r} \propto \frac{2 n_i L_p}{N_D X_D} exp\left(\frac{q V}{2k T}\right)$$
+                $$\mbox{小电压时，复合电流起主要作用；大电压时，扩散电流起主要作用}$$
+                J-V经验公式
+                $$J_f \propto exp\left(\frac{q V}{m k_B T}\right), \mbox{理想因子}m : 1 \sim 2$$
+                \item 反偏压下 $n \approx p \approx 0$，
+                $$\therefore U = \frac{n_i}{2 \tau}$$
+                $$\therefore J_G = \int_{-x_p}^{x_n}q U dx = \frac{q n_i}{2 \tau}X_D$$
+                $$\frac{J_{rd}}{J_G} = 2\frac{n_i}{N_D}\frac{L_p}{X_D}\mbox{\quad室温下$J_G >> J_{rd}$}$$
+                $$\mbox{温度升高，少子寿命降低，禁带宽度变小，都会导致$J_G$增加，即反向电流增加}$$
+            \end{itemize}
+        \subsubsection{大注入条件}
+            $$n_{n0} = N_D = n_i$$
+            $$J_p = q \mu_p p_n(x_n) E(x_n) - q D_p \frac{d\Delta p_n(x)}{dx}$$
+            $$J_n = q \mu_n n_n(x_n) E(x_n) + q D_n \frac{d\Delta n_n(x)}{dx}$$
+            $$\mbox{内建电场}J_n = 0, E(x_n) = -\frac{D_n}{\mu_n}\frac{1}{n_n(x_n)}\frac{d\Delta n_n(x)}{dx}$$
+            $$\therefore    J_p = -q D_p \left[1 + \frac{p_n(x_n)}{n_n(x_n)}\right]\frac{d \Delta p_n(x)}{dx}
+            = -2 q D_p \frac{d \Delta p_n(x)}{dx}$$
+            $$\because p_n n_n = n_i^2 exp(qV / k_B T), p_n \approx n_n$$
+            $$\therefore p_n(x_n) = n_i exp(qV / 2k_B T)$$
+            $$\therefore J_f = 2 q D_p \frac{n_i}{L_p} exp(q V / 2 k_B T)$$
+            在$p^{+}n$结的大注入条件下，电子的扩散电流与漂移电流大小相等，方向相反而相互抵消；\\
+            在正向电流密度中，空穴扩散电流和空穴漂移电流大小相等，方向相同，使得总空穴电流是扩散电流的两倍。
+
+\section{pn结电容}
+    \subsection{势垒电容}
+        产生原因：空间电荷区厚度发生变化
+        突变结：
+        $$\because|Q| = A q N_A x_p = A q N_D x_n\qquad
+        X_D = \sqrt{\frac{2\varepsilon_0 \varepsilon_r(N_A + N_D)V_D}{q N_A N_D}}\qquad
+        x_n = \frac{N_A}{N_A + N_D}X_D$$
+        $$\therefore |Q| = A q \left[\frac{2\varepsilon_0 \varepsilon_r}{q}\frac{N_A N_D}{N_A + N_D}(V_D - V)\right] ^ {1/2}$$
+        $$\therefore C_T = \frac{dQ}{dV} =
+         A \left[\frac{\varepsilon_0 \varepsilon_r q}{2 (V_D - V)}\frac{N_A N_D}{N_A + N_D}\right]^{1/2}
+          = \frac{A\varepsilon_0 \varepsilon_r}{X_D}$$
+          若为突变结，令$N_B$为轻掺杂浓度
+          $$C_T = A \sqrt{\frac{q\varepsilon_0 \varepsilon_r N_B}{2(V_D -V)}}$$
+          若考虑势垒区的载流子作用
+          $$C_T = 4 C_T(0) = 4 A \sqrt{\frac{q\varepsilon_0 \varepsilon_r N_A N_D}{2(N_A + N_D) V_D}}$$
+        对于线性缓变结，思路相同，只是$X_D$不同
+        $$C_T = \frac{dQ}{dV} = A \left[\frac{q \alpha_j \varepsilon_0 ^ 2\varepsilon_r ^ 2}{12(V_D - V)}\right] ^{1/3}
+        = \frac{A\varepsilon_0 \varepsilon_r}{X_D}$$
+        无论杂质如何分布，在一定反向偏压下的微分电容，都可以等效为一个平行板电容器的电容。
+    \subsection{扩散电容}
+    在正向偏压下，空间电荷区外扩散长度范围内存贮有过剩载流子$\Delta n，\Delta p$,这些电荷的存贮量是随正向偏压增加的，这部分电容效应成为扩散电容。\\
+    对于N区
+    $$\Delta p(x) = p_{n0}\left[exp\left(\frac{qV}{kT}\right) - 1\right]exp\left(-\frac{x - x_n}{Lp}\right)$$
+    $$\therefore Q_p = A e \int_{x_n}^{\infty}\Delta p(x)dx = A q L_p p_{n0}\left[exp\left(\frac{qV}{kT}\right) - 1\right]$$
+    $$\therefore C_{dp} = \frac{d Q_p}{dV}=  A \frac{q ^ 2 L_p p_{n0}}{k T} exp\left(\frac{qV}{kT}\right)$$
+    $$\mbox{P区\quad}C_{dn} = \frac{d Q_n}{dV}=  A \frac{q ^ 2 L_n n_{p0}}{k T} exp\left(\frac{qV}{kT}\right)$$
+    $$\therefore C_d = C_{dp} + C_{dn} = \left[A q ^ 2 \frac{(n_{p0} Ln + p_{n0} Lp)}{kT}\right]exp\left(\frac{qV}{kT}\right)$$
+\section{pn结击穿}
+    \subsection{雪崩击穿}
+    在高反偏的p-n结势垒区中电场很强，载流子在强电场下将获得很大的动能，会发生碰撞电离而激发出新的电子－空穴对，并持续下去\\
+    估算击穿电压：即为E-x关系图所围成面积
+    $$\mbox{突变结:}V_{BR} = \frac{1}{2} E_c \cdot X_D = \frac{\varepsilon_0 \varepsilon_r}{2q}\frac{E_C ^ 2}{N_B}$$
+    $$\mbox{缓变结:}V_{BR} = \left(\frac{32\varepsilon_0 \varepsilon_r E_c ^ 3}{9 \alpha_j q}\right) ^{1/2}$$
+    \textbf{雪崩击穿具有正的温度系数}\quad 随着温度的增加，半导体晶格振动加强，载流子与晶格碰撞几率增加，从而因碰撞而损失的能量也就增加。因此要达到碰撞所需的能量，必须有更强的电场。
+    \subsection{齐纳击穿}
+    在两边都重掺杂的pn结中是主要的击穿机制。当反向偏压很高时，p区的价带顶高于N区的导带底。当价带电子所需越过的势垒宽度$d = Eg/qE$ 时，价带电子可以直接隧穿到导带
+    $$\mbox{隧穿几率}P = exp\left[-\frac{8\pi}{3}\left(\frac{2 m_n^{*}}{h^2}\right)^{1/2} E_g^{1/2}\Delta x\right]$$
+    $$\mbox{其中}\Delta x =  \frac{E_g}{q}\left(\frac{2\varepsilon_0 \varepsilon_r}{q}\frac{1}{N_{eff}V_r}\right) ^ {1/2},N_{eff} = \frac{N_D N_A}{N_D + N_A}$$
+    \subsection{两种击穿比较}
+        \begin{tabular}{|c|c|c|c|c|}
+        \hline & 雪崩击穿 & 齐纳击穿\\
+        \hline 掺杂浓度 & 低;$N\uparrow,E_B\uparrow$&高;$N\uparrow,E_B\downarrow$\\
+        \hline $E_g$ & $E_g \uparrow, E_B\uparrow(V_{BR} > 6 E_g / q)$ & $E_g \uparrow, E_B\uparrow(V_{BR} < 4 E_g / q)$\\
+        \hline 温度关系 & $T\uparrow, E_B \uparrow$ & $T\uparrow, E_g\downarrow, E_B\downarrow$\\
+        \hline 隧道长度 & d大利于雪崩击穿& d小利于齐纳击穿\\
+        \hline
+        \end{tabular}
+\section{隧道效应}
+    \begin{itemize}
+        \item   简并半导体的费米能级可以在导带顶上，也可以在价带底下
+        \item   {\textbf{江崎二极管}结一边的导带电子直接通过隧道效应穿透到对面的价带（或相反），这个过程称为pn结中的隧道效应，这种效应只涉及到两个带中多子数量的变化，不会造成载流子的非平衡积累}
+        \item   江崎二极管具有负阻区
+    \end{itemize}
+
+\clearpage
+
+\end{spacing}
+\end{CJK*}
+\end{document}

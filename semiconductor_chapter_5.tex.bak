@@ -1,0 +1,159 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,mathpazo}
+\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{flowchart}
+\begin{document}
+
+\begin{CJK*}{GBK}{hei}
+\begin{spacing}{2}
+\title{\CJKfamily{kai}非平衡载流子}
+\author{\CJKfamily{kai}复旦大学~~微电子学系\\13307130163\\\CJKfamily{kai}李琛}
+\maketitle
+\tableofcontents
+\newpage
+\end{spacing}
+\begin{spacing}{2.25}
+\section{\CJKfamily{hei}\textmd{非平衡载流子的注入与复合}}
+    \subsection{\textmd{载流子}}
+        \begin{itemize}
+            \item   载流子产生率$G(generation)$\quad 载流子复合率$R(recombination)$
+            \item   平衡态 $G_0 = R_0$\quad热平衡下$G_{n0} = G_{p0} = R_{n0} = R_{p0}$
+        \end{itemize}
+    \subsection{\textmd{非平衡载流子}}
+        \begin{itemize}
+            \item \textbf{非简并半导体处于平衡态}\quad{\large $n_0 p_0 = N_v N_e exp\left(-\frac{E_g}{k_B T}\right) = n_i^2$}
+            \item {\textbf{非平衡状态}\quad 对半导体施加外界作用，使半导体处于与热平衡状态偏离的状态。在非平衡状态下，载流子浓度比平衡状
+态多出一部分($\Delta n=\Delta p$)}
+            \item {\textbf{小注入}\quad 对于n型半导体，$\Delta n < < n_0, \Delta p >> p_0$（小注入）\newline $\Delta n > n_0, \Delta p >> p_0$（大注入）}
+            \item \textbf{光注入引起的附加电导率}\quad{\large$\Delta\sigma = \Delta n q \mu_n + \Delta p q \mu_p = \Delta p q (\mu_n + \mu_p)$}
+            \item \textbf{复合率P}\quad 单位时间内的净复合消失掉的电子－空穴对数目。$$
+                \frac{d\Delta p(t)}{dt} = -P \Delta p (t)\Longrightarrow\Delta p(t) = \Delta p_0 e^{(-Pt)}$$$$
+                \mbox{令}P = 1 / \tau$ \quad $\Delta p(t) = \Delta p_0 e^{(-t/\tau)}$}$$$$
+                \mbox{非平衡载流子的平均寿命}\bar{t} = \frac{\displaystyle\int_0^\infty {t d \Delta p(t)}}{\displaystyle\int_0^\infty{d \Delta p(t)}} = \tau \mbox{\quad 其中}\Delta p(\tau) = \frac{\displaystyle\Delta p_0}{\displaystyle e}$}
+        \end{itemize}
+    %\newpage
+    \subsection{准平衡态和准费米能级}
+        \begin{itemize}
+            \item   $\mbox{准平衡}=\left\{
+                \begin{aligned}
+                    \mbox{电子子系统与晶格平衡}\rightarrow \quad E_F^n \\
+                    \mbox{空穴子系统与晶格平衡}\rightarrow \quad E_F^p \\
+                    \mbox{但电子子系统与空穴子系统不平衡}
+                \end{aligned}
+            \right.$
+            \item 非平衡时没有统一$E_F$\\
+            {\large
+            $n = n_0 + \Delta n = N_c exp\left(-\frac{E_c - E_f^n}{k_B T}\right) = n_0 exp\left(\frac{E_f^n - E_f}{k_B T}\right)$\\
+            $p = p_0 + \Delta p = N_v exp\left(-\frac{E_f^p - E_v}{k_B T}\right) = p_0 exp\left(\frac{E_f - E_f^p}{k_B T}\right)$\\
+            $np = n_i^2 exp\left(-\frac{E_f^n - E_f^p}{k_B T}\right)$
+            }
+            \item n型半导体中，$E_F^n$与$E_F$很接近，而$E_F^p$与$E_F$可以有显著差别，\newline
+            {\large $E_F^n - E_F^p$} 反映了系统偏移热平衡的程度
+        \end{itemize}
+        \end{spacing}
+
+\begin{spacing}{1.5}
+    \section{复合理论}
+            \subsection{复合方式}
+                    \begin{itemize}
+                        \item   按能量交换方式分，分为\quad 辐射复合(光子复合(E - 光子))
+                            \newline 与非辐射复合(声子复合(E - 声子)，俄歇复合(E - 电子))
+                        \item   按复合过程分，分为直接复合与间接复合
+                    \end{itemize}
+            \subsection{直接复合}
+                \begin{itemize}
+                    \item   导带电子直接落入价带的空状态
+                    \item   复合率$R \propto np$，令$R = rnp$，其中$r$为电子-空穴复合几率，只与$T$有关
+                    \item   产生率$G = G_0$，只与$T$有关
+                    \item   热平衡时，$G = G_0 = R_0 = rn_0p_0 = rn_i^2$
+                    \item   净复合率$U_d =  R - G = r(np - n_i^2) = r(n_0 + r_0)\Delta p + r \Delta p^2 = r\Delta p(n_0 + p_0 + \Delta p)$
+                    \item   又由$U_d = \Delta p / \tau $， 得 $\tau = \frac{1}{r(n_0 + p_0 + \Delta_p)}$
+                    \newline 小注入时，$(n_0 + p_0) > > \Delta p$, $\tau = \frac{1}{r(n_0 + p_0)}$
+                    \newline 又如果是n型半导体，$n_0 > > p_0$, $\tau = \frac{1}{rn_0}$
+                \end{itemize}
+            \subsection{间接复合}
+                \begin{itemize}
+                    \item   间接复合的四个基本过程
+                        \begin{itemize}
+                            \item   甲:复合中心从导带得到电子\quad  电子俘获率 $= r_nn(N_t - n_t)$
+                            \item   乙:导带从复合中心得到电子\quad 电子发射率   $ = s_-n_t$
+                            \item   丙:价带从复合中心得到电子\quad  空穴俘获率   $ = r_ppn_t$
+                            \item   丁:复合中心从价带得到电子\quad  空穴发射率   $ = s_+(N_t - n_t)$
+                        \end{itemize}
+                    \item   稳态时，满足$E_t$上的电子书$n_t$不变\newline
+                        $a + d = b + c, \mbox{复合率}U = a - b = c - d$
+                    \item $s_-, s_+$均为常数，可用平衡时参数求得
+                    \item   热平衡时，$a = b, c = d$
+                    \newline    $s_-n_t = r_n n_0(N_t - n_t)$, {\Large $n_t =\frac{N_t}{1 + exp\left(-\frac{E_t - E_F}{k_B T}\right)}$}
+                    \newline {\Large   $\therefore s_- = r_n n_1, n_1 = N_C exp\left(-\frac{E_C - E_t}{k_B T}\right)$}
+                    \newline {\Large   $ s_+ = r_p p_1, p_1 = N_Vexp\left(-\frac{E_t - E_V}{k_B T}\right)$}
+                    \newline    代入稳态条件$a + d = b + c$, 得$$n_t = N_t\frac{r_n n + r_p p_1}{r_n(n + n_1) + r_p(p + p_1)},\quad U = \frac{N_t r_n r_p(n p - n_i^2)}{r_n(n + n_1) + r_p(p + p_1)}$$
+                \end{itemize}
+\end{spacing}
+\begin{spacing}{2}
+            \section{陷阱效应}
+                \begin{itemize}
+                    \item   杂质能级能显著俘获并收容一种过剩载流子
+                    \item   此时$\Delta p = \Delta n + \Delta n_t$,其中$\Delta n_t$为过剩载流子引起的中心上电子改变量
+                    \item   陷阱的作用:\quad 增加少子寿命
+                    \item   有效的陷阱:\quad 在$N_t$较低的情况下，$\Delta n_t >> \Delta n$
+                    \item   成为陷阱的条件:\quad   $\Delta n_t =  N_t \frac{n_1}{(n_0 + n_1)^2}\Delta n$
+                \end{itemize}
+
+            \section{载流子扩散}
+                \begin{itemize}
+                    \item   若载流子分布存在浓度梯度，则产生扩散流
+                    \item   $\mbox{扩散流公式}\left\{
+                \begin{aligned}
+                    J_n = - D_n\nabla n \\
+                    J_p = - D_p\nabla p
+                \end{aligned}
+            \right.$
+                    \item   $\left\{
+                \begin{aligned}
+                    \mbox{总电子电流}j_n = eD_n\frac{dn}{dx} + ne\mu_nE \\
+                    \mbox{总空穴电流}j_p = eD_p\frac{dp}{dx} + ne\mu_pE
+                \end{aligned}
+            \right.$
+                \item   一维稳定扩散
+                    \begin{itemize}
+                        \item   稳定状态：积累速率$A$ = 净复合速率$U_d$
+                        \item   $p = p_0 + \Delta p$, $p_0$ 是常数， $j = -D_p\frac{d_{\Delta p}}{dx}$
+                        \newline    $A = -\nabla \cdot j = D_p\frac{d^2{\Delta p}}{d{x^2}}, U_d = \frac{\Delta p}{\tau}$
+                        \newline 得到微分方程$D_p\frac{d^2{\Delta p}}{d{x ^ 2}} = \frac{\Delta p}{\tau}$
+                        \newline 通解为{\large $\Delta p(x) = A \cdot e^{-\frac{x}{L_p}} + B \cdot e^{-\frac{x}{L_p}}$}, 其中$L_p = \sqrt{D_p\tau}$,为扩散长度
+                        \item   $\mbox{代入边界条件}\left\{
+                            \begin{aligned}
+                                \lim\limits_{x\rightarrow \infty} \Delta p = 0 \rightarrow B = 0\\
+                                \lim\limits_{x\rightarrow 0} \Delta p = (\Delta p)_0 \rightarrow A = (\Delta p) _0\
+                            \end{aligned}
+                            \right.$
+                        \item {\large $\therefore\Delta p(x) = (\Delta p) _0 \cdot e^{-\frac{x}{L_p}}$}
+                    \end{itemize}
+                \end{itemize}
+\end{spacing}
+\begin{spacing}{1.5}
+            \section{其他内容}
+                \begin{itemize}
+                \item   爱因斯坦关系（扩散系数与迁移率的关系） $D =  \frac{kT}{e}\mu$\newline
+                        成立条件:平衡，非简并
+                \item   双极扩散:两种载流子扩散和漂移运动的差异，会使电场分布发生一定的变化，电场的变化可通过漂移影响两种载流子的运动，并使两种过剩载流子保持同步，不过当两种载流子数量相差悬殊的情况下，电场分布的变化对于少子运动产生的影响可以忽略不计。
+                \item   丹倍效应:由双极扩散中，由于两种载流子的扩散系数不同，在有过剩载流子时，样品中将存在电场，称为丹倍电场，该电场在光照表面和背面建立电势差，称为丹倍电势差，这种效应即丹倍效应。
+                    \newline 来源:\quad   电子与空穴不同步，电子比空穴快
+                    \newline 作用:\quad   降低电子扩散，加速空穴扩散
+                \end{itemize}
+
+\clearpage
+
+\end{spacing}
+\end{CJK*}
+\end{document}

@@ -1,0 +1,124 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,mathpazo}
+\usepackage{ulem}
+\usepackage{multicol}
+\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{flowchart}
+\begin{document}
+
+\begin{CJK*}{GBK}{hei}
+\begin{spacing}{2}
+\title{\CJKfamily{kai}金半接触}
+\author{\CJKfamily{kai}复旦大学~~微电子学系\\13307130163\\\CJKfamily{kai}李琛}
+\maketitle
+\tableofcontents
+\newpage
+\end{spacing}
+\begin{spacing}{1.5}
+\section{金半接触能级图}
+    \subsection{金属与半导体的功函数}
+        \begin{itemize}
+            \item   {\textbf{功函数}\quad 真空能级$E_0$和费米能级$E_F$之差\quad $W = E_0 - E_F$}
+            \item   {\textbf{半导体的亲和能$\chi$}\quad 真空能级$E_0$和导带底$E_C$之间的能量差\quad $\chi = E_0 - E_C$\newline Si的电子亲和能：4.05eV}
+            \item   金属的功函数和半导体的亲和能是固定的，但是半导体的功函数会随掺杂浓度不同而改变
+        \end{itemize}
+    \subsection{接触电势差}
+        \begin{itemize}
+            \item   $D$很大时 接触电势差:\quad $\phi_{ms} = \phi_m - \phi_s = \frac{1}{q}(W_m - W_s)$
+            \item   $D = 0$时，肖特基势垒$ q \phi_{ns} =  W_m - \chi, qV_D = W_m - W_s$
+            \item   阻挡层：高阻，整流\quad 反阻挡层：低阻，欧姆
+            \item  
+            \begin{multicols}{2}
+           $\mbox{N型}\left\{
+                \begin{aligned}
+                    \mbox{整流\quad}W_m > W_s\quad \\
+                    \mbox{欧姆\quad}W_m < W_s\quad
+                \end{aligned}
+            \right.$
+            $\mbox{P型}\left\{
+                \begin{aligned}
+                    \mbox{整流\quad}W_m < W_s\quad \\
+                    \mbox{欧姆\quad}W_m > W_s\quad
+                \end{aligned}
+            \right.$
+            \end{multicols} 
+           \item    金属-n型半导体的SBH:\quad$\phi_{Bn} = W_m - \chi$
+           \newline 金属-p型半导体的SBH:\quad$\phi_{Bp} = E_g + \chi - W_m$
+           \newline $\phi_{Bn} + \phi_{Bp} =E_g$, 对同一种金属，理想情况下n型半导体接触的表面势垒和p型半导体接触的表面势垒高度之和等于禁带宽度
+        \end{itemize}
+    \subsection{表面态对接触势垒的影响}
+        \begin{itemize}
+            \item   表面态产生原因：原子周期性排列的终止
+            \item   {\textbf{钉扎效应}  在半导体表面，费米能级的位置由表面态费米能级$E_{Fs}$决定，而与半导体的掺杂浓度无关}
+            \item   {\textbf{费米能级钉扎效应}  如果表面态密度无限大，尽管有电子流入表面态，但是$E_{Fs}$仍不变。金属和半导体的费米能级都钉扎在$E_{Fs}$上。$$q\phi_{ns} \approx \frac{2}{3}E_g \qquad 
+                q V_D \approx \frac{2}{3}E_g - (E_C - E_F)$$}
+            
+        \end{itemize}
+    \subsection{金半接触的静电特性}
+        前提假设：耗尽层近似,并用泊松方程求解
+        $$\frac{d^2V}{dx^2}\left\{
+                \begin{aligned}
+                    &-\frac{q N_D}{\varepsilon_0 \varepsilon_r}  \quad   0 \le x \le x_d \\
+                    &0 \quad    x > x_d
+                \end{aligned}
+            \right.$$
+        $$E(x) = \frac{q N_D}{\varepsilon_0 \varepsilon_r}(x - x_d)$$
+        $$V(x) = \frac{q N_D}{2\varepsilon_0 \varepsilon_r}(x - x_d) ^ 2, x_d = \left(\frac{2\varepsilon_0 \varepsilon_r}{q N_D}V_D\right)^{1/2}$$
+        \textbf{肖特基势垒电容}\quad
+        加反向偏压时也可当平行板电容处理
+        $$C_T = A \left[\frac{\varepsilon_0 \varepsilon_r q N_D}{2(V_D - V)}\right] ^ {1/2}$$
+\section{金半接触的整流输运理论}
+    \subsection{扩散电流}
+        \begin{itemize}
+            \item   适用于势垒宽度 $>>$ 电子平均自由程即$l_n << d$
+            \item   同时考虑势垒区扩散和漂移电流
+            $$J = J_{SD}\left[exp\left(\frac{q V}{k T}\right) - 1\right]$$
+            $$J_{SD} \propto T^{-1/2}exp(\phi_B / k_B T)$$
+            $$\mbox{实验中一般}J_{SD} \propto T^{2}exp(\phi_B / k_B T)\mbox{即热电子发射}$$ 
+        \end{itemize}
+    \subsection{热电子发射电流}
+        \begin{itemize}
+            \item   适用于势垒宽度 $<<$ 电子平均自由程即$l_n >> d$
+            \item   同时考虑势垒区扩散和漂移电流
+            \item   半导体至金属的电流$j_{S\rightarrow M}$随电压变化，而金属至半导体的电流$j_{M\rightarrow S}$由于金属一侧势垒恒定而不随电压改变，且当没有外加电压(即$V=0$)时有 $j_{S\rightarrow M} + j_{M\rightarrow S} = 0$
+            $$j_{S\rightarrow M} = A^{*} T^2 exp\left(-\frac{\phi_B}{k_B T}\right)exp\left(-\frac{q V}{k_B T}\right)$$
+            $$ A^{*}\mbox{ is Richardson Constant}$$
+            $$j_{M\rightarrow S} = j_{S\rightarrow M}(V = 0) = A^{*} T^2 exp\left(-\frac{\phi_B}{k_B T}\right)$$
+            $$J = j_{M\rightarrow S} + j_{S\rightarrow M} = J_{0}\left[exp\left(\frac{q V}{k T}\right) - 1\right]$$
+            
+        \end{itemize}
+    \subsection{肖特基二极管与pn结二极管的比较}
+        \begin{itemize}
+            \item   较小的开启电压
+            \item   较大反向电流
+            \item   较低的击穿电压
+            \item   多子器件，载流子无存储，多用于高频
+        \end{itemize}
+    \subsection{隧穿电流和镜象力的影响}
+        \begin{itemize}
+            \item   {\textbf{镜像力}\quad 镜象力使势垒高度降低,在反向电压较高时比较重要
+            $$q\Delta \phi = \frac{q^2 N_D}{\varepsilon_0 \varepsilon_r}x_m x_d = \frac{1}{4}\left[\frac{2 q^7N_D}{\pi^3\varepsilon_0^3 \varepsilon_r^3}(V_D - V)\right] ^{1/4}$$}
+            \item   {\textbf{隧道效应}\quad 隧道效应引起势垒降低，反向电流增大\\
+            推导采用了WKB近似\\
+            $$ q\Delta \phi = \left[\frac{2q^3 N_D}{\varepsilon_0 \varepsilon_r}(V_D - V)\right] ^{1/2}x_c, x_c\mbox{为临界厚度}$$}
+        \end{itemize}
+
+\section{少子注入与欧姆接触}
+    \subsection{少子注入}
+    \centerline{少子注入比 $\gamma = \frac{J_p}{J} = \frac{J_p}{J_p + J_n}$}
+    \subsection{欧姆接触}
+            当半导体高掺杂时，势垒很薄，这时电子隧穿效应为主，此时金半接触表现出电阻性质，称为欧姆接触.此时$J \propto V$
+\clearpage
+
+\end{spacing}
+\end{CJK*}
+\end{document}
