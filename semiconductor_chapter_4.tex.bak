@@ -22,7 +22,7 @@
 \newpage
 \end{spacing}
 \begin{spacing}{2}
-\section{\CJKfamily{hei}\textmd{电导率}}
+\section{\CJKfamily{hei}电导率}
 
         \begin{itemize}
             \item   $\because  V = V_0 +at = V_0 + \frac{eE}{m}t, \bar{V_0} = 0
@@ -32,7 +32,7 @@
                     又$V_d = \frac{e\tau}{m}E$，令迁移率$\mu = \frac{e\tau}{m}$\newline
                     则$\sigma = nq\mu = nq\mu_n + pq\mu_p$
         \end{itemize}
-    \section{\textmd{载流子的散射}}
+    \section{载流子的散射}
         \begin{itemize}
             \item   若没有散射，在电场中的电子的速度会变得无穷大，也会发生bloch振荡。\newline
                     载流子在运动中，由于晶格热振动和电离杂质以及其他因素的影响，不断遭到散射，电场不可能使之无限加速。\newline
@@ -52,10 +52,10 @@
                 \therefore \mu_n = \frac{e\tau_n}{m^{*}_n}, \sigma_n = \frac{ne^2\tau}{m^{*}_n}$}
                 \end{itemize}
             \item   \textbf{电导有效质量}\\
-                    以硅为例，{\Large $j = n q \mu_nE\newline
-                    \because    \mu_n = \frac{1}{3}(\mu_l + 2 \mu_t), \mu_l = \frac{q\tau}{m_l^{*}}, \mu_t = \frac{q\tau}{m_t^{*}}\newline
-                    \therefore  \mu_n = \frac{e\tau_n}{m^{*}_{cn}}, \frac{1}{m^{*}_{cn}} = \frac{1}{3}\left(\frac{1}{m_l} + \frac{2}{m_t}\right)\newline
-                    \quad \mu_p = \frac{ e \tau_p } { m^{*}_{cp} }, \frac{1} { m^{*}_{cp} } = \frac{ (m^{*}_{cl}) ^ {1/2} + (m^{ * }_{ ch }) ^ { 1/2 } } {(m^{*}_{cl}) ^ { 3/2 } + (m^{ * }_{ ch }) ^ { 3/2 } }$}
+                    以硅为例，$$j = n q \mu_nE$$$$
+                    \because    \mu_n = \frac{1}{3}(\mu_l + 2 \mu_t), \mu_l = \frac{q\tau}{m_l^{*}}, \mu_t = \frac{q\tau}{m_t^{*}}$$$$
+                    \therefore  \mu_n = \frac{e\tau_n}{m^{*}_{cn}}, \frac{1}{m^{*}_{cn}} = \frac{1}{3}\left(\frac{1}{m_l} + \frac{2}{m_t}\right)$$$$
+                    \quad \mu_p = \frac{ e \tau_p } { m^{*}_{cp} }, \frac{1} { m^{*}_{cp} } = \frac{ (m^{*}_{cl}) ^ {1/2} + (m^{ * }_{ ch }) ^ { 1/2 } } {(m^{*}_{cl}) ^ { 3/2 } + (m^{ * }_{ ch }) ^ { 3/2 } }$$
 
             \item \textbf{电离杂质散射}\\
                     散射几率P和杂质浓度大体成正比，和能量的3/2次方成反比\\
@@ -70,10 +70,48 @@
                     光学波：长波极限下，同一原胞两个不等价原子振动方向相反。\\
                     声子：格波能量量子化，作为玻色子处理，引入“声子”表示晶格振动能量量子化的单元，即晶格振动能量的量子。\\
                     对于Si，Ge等半导体只考虑纵声学波对电子的散射
-                    {\Large $\mu_s\propto T^{2/3}$}\\
+                    $\mu_s\propto T^{2/3}$\\
                     $T$ 越高，散射几率越大.
+					$\mbox{晶格振动波}\left\{
+                \begin{aligned}
+                    \mbox{声学波}\\
+                    \mbox{光学波}
+                \end{aligned}
+            \right.$
          \end{itemize}
     \section{迁移率、电阻率与杂质浓度和温度的关系}
+        \begin{itemize}
+            \item   当几种散射机构同时存在时，$P = \Sigma P_i \rightarrow \frac{1}{\tau} = \Sigma \frac{1}{\tau_i} \rightarrow \frac{1}{\mu} = \Sigma \frac{1}{\mu_i}$
+            \item   同时考虑多种散射，$$\mu = q\frac{\tau}{m^{*}_{nc}} = \frac{q}{m^{*}}\frac{1}{AT^{3/2}+\frac{B N_i}{T^{3/2}}}$$
+            \item 随着温度升高
+            $$\begin{aligned}
+                    \mu \approx \mu_N \propto N_n^{-1}\mbox{\quad 中性杂质散射}\Rightarrow \\
+                    \mu \approx \mu_I \propto T^{3/2}/N_I\mbox{\quad 电离杂质散射}\Rightarrow \\
+                    \mu \approx \mu_S \propto T^{-3/2}\mbox{\quad 声学杂质散射}\Rightarrow \\
+                    \mu \approx \mu_O \propto exp\left(\frac{\bar h \omega}{k_B T} - 1\right)\mbox{\quad 光学杂质散射}
+                \end{aligned}$$
+            \item   低电场下，$V_d$与$E$成线性关系，但强电场下，$V_d$趋向于饱和。其解释是，在强电场下漂移速度趋向于热运动速度，相当于电子的有效温度增加，而在高温下以光学杂质散射为主，温度升高$V_d$趋向于饱和。
+        \end{itemize}
+    \section{霍尔效应}
+        \begin{itemize}
+            \item 电流沿x方向，在垂直于电流的z方向施加磁场B，那么在垂直于电流和磁场的y方向上将出现横向电场，这个效应称为霍尔效应。
+            \item   做漂移运动的载流子，在垂直磁场作用下，受洛仑兹力产生偏转，在样品两侧产生电荷积累。横向电场所引起的漂移电流($qE_H$)和洛仑兹力产生的霍尔偏转电流($qV_xB_z$)抵消。
+            \item 横向电场$E_y$正比于$j_x \cdot B_z$，可写成$E_y = R \cdot j_x \cdot B_z$；$R$是比例系数，称为霍尔系数。
+            \newline
+             $\because e V_d B -e E_y = 0 \therefore V_d B = E_y\newline
+             \because j_x = n -e V_d \therefore E_y = V_d \cdot B = -\frac{1}{n e}j_x \cdot B \Rightarrow R = -\frac{1}{n e} （ \frac{1}{p e}）$
+        \end{itemize}
+    \section{*玻尔兹曼输运方程}
+        \begin{itemize}
+            \item   $$\because \frac{\partial f}{\partial t} = \left( \frac{\partial f}{\partial t}\right)_d\mbox{(漂移项)} + \left( \frac{\partial f}{\partial t}\right)_s\mbox{(碰撞项)},$$$$
+                 \mbox{稳态时\quad}\frac{\partial f}{\partial t} = 0$$$$
+                \left( \frac{\partial f}{\partial t}\right)_d = - \nabla_r f \cdot v - \nabla_k f \cdot \frac{dk}{dt} $$$$
+                \therefore \left( \frac{\partial f}{\partial t}\right)_s =  \nabla_r f \cdot v + \nabla_k f \cdot \frac{dk}{dt}$$即为玻尔兹曼输运方程
+            \item 对于均匀半导体，$\nabla_r f = 0$, $\left( \frac{\partial f}{\partial t}\right)_s = \nabla_k f \cdot \frac{dk}{dt}$
+            \item   为解此方程引入弛豫时间近似,设$$\left( \frac{\partial f}{\partial t}\right)_s = - \frac{f - f_0}{\tau}$$$$
+                \therefore - \frac{f - f_0}{\tau} = \nabla_k f \cdot \frac{dk}{dt}$$
+            \item   弱电场下，求得$\sigma$为一张量，各项同性时，$$\sigma = - \frac{2 e^2}{(2 \pi) ^ 3}\int_ \tau v^2 \frac{\partial f_0}{\partial E}dk$$
+        \end{itemize}
 \clearpage
 
 \end{spacing}

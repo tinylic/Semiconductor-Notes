@@ -10,6 +10,8 @@
 \usepackage{amssymb}
 \usepackage{tikz,mathpazo}
 \usepackage{ulem}
+\usepackage{multicol}
+\usepackage{float}
 \usetikzlibrary{shapes.geometric, arrows}
 %\usepackage{flowchart}
 \begin{document}
@@ -25,15 +27,30 @@
 \begin{spacing}{1.5}
 \section{平衡pn结}
         \subsection{pn结的形成}
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.5]{Ch6Pic0.png}
+				\caption{pn结的形成}
+			\end {figure}
             \begin{itemize}
                 \item   {\textbf{突变结}\quad 载流子浓度高，较浅\newline$x < x_j, N(x) = N_A - N_D$;\quad$x > x_j, N(x) = N_D$\newline$N_A >> N_D \rightarrow p^+-n$ 结\quad$N_D >> N_A n^+-p$ 结 }
                 \item   {\textbf{缓变结}\quad 载流子浓度低，较深\quad$N_D - N_A = \alpha_j(x - x_j)$}
             \end{itemize}
         \subsection{空间电荷区}
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.5]{Ch6Pic1.png}
+				\caption{pn结的结构}
+			\end {figure}
             载流子浓度梯度$\Rightarrow$扩散$\Rightarrow$破坏电中性$\Rightarrow$ 自建电场
             $\Rightarrow$漂移电流$\Rightarrow$动态平衡$\Rightarrow$零净电流
             \newline \centerline{    $J_n = J_{n,diff} + J_{n,drift} = 0, J_p = J_{p,diff} + J_{p,drift} = 0$}
         \subsection{平衡结中费米能级}
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.7]{Ch6Pic2.png}
+				\caption{平衡pn结能带图}
+			\end {figure}
             平衡结中费米能级为一条直线，推导如下:
             $$\because n_0 = n_i exp\left(\frac{E_F - E_i}{kT}\right),
             E = -\frac{dV(x)}{dx} = \frac{1}{q}\frac{dE_i}{dx}$$
@@ -42,6 +59,7 @@
             $$\because  J_n = qn_0\mu E + qD_n\frac{dn_0}{dx}, \frac{D_n}{\mu_n} = \frac{k_BT}{q}$$
             $$\therefore    J_n = \mbox{\sout{$qn_0\mu E$}} - \mbox{\sout{$qD_nn_0\frac{qE}{kT}$}} + n_0 \frac{qD_n}{kT}\frac{dE_F}{dx} = 0$$
             $$\therefore \frac{dE_F}{dx} = 0, \mbox{得证}$$
+
         \subsection{pn结接触电势差}
             $$\because qV_D = E_{F(n)} - E_{F(p)}$$
             $$\left\{
@@ -56,9 +74,19 @@
             \centerline{$n_{n0}$:电中性n型区的电子浓度\quad$p_{p0}$:电中性p型区的空穴浓度}
             \centerline{$n_{p0}$:电中性p型区的电子浓度\quad$p_{n0}$:电中性n型区的空穴浓度}
             $$n(x) = n_{p0}exp\left(\frac{qV(x)}{kT}\right), p(x) = p_{p0}exp\left(-\frac{qV(x)}{kT}\right)$$
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.8]{Ch6Pic4.png}
+				\caption{平衡pn结载流子分布}
+			\end {figure}
             \centerline{\textbf{耗尽层近似}\quad 势垒区中全部载流子被耗尽，可忽略}
 \section{pn结电流电压特性}
     \subsection{平衡pn结静电特性}
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.7]{Ch6Pic3.png}
+				\caption{pn结电场分布}
+			\end {figure}
     思路：$$\begin{aligned}
                 &\mbox{利用耗尽层近似求出空间电荷密度}\rho(x)\\
                 &\mbox{利用泊松方程积分}\rho(x)\mbox{求出}E(x)\\

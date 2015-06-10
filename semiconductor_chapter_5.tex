@@ -9,6 +9,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz,mathpazo}
+\usepackage{multicol}
+\usepackage{float}
 \usetikzlibrary{shapes.geometric, arrows}
 %\usepackage{flowchart}
 \begin{document}
@@ -40,7 +42,6 @@
                 \mbox{令}P = 1 / \tau \quad \Delta p(t) = \Delta p_0 e^{(-t/\tau)}$$$$
                 \mbox{非平衡载流子的平均寿命}\bar{t} = \frac{\displaystyle\int_0^\infty {t d \Delta p(t)}}{\displaystyle\int_0^\infty{d \Delta p(t)}} = \tau \mbox{\quad 其中}\Delta p(\tau) = \frac{\displaystyle\Delta p_0}{\displaystyle e}$$
         \end{itemize}
-    %\newpage
     \subsection{准平衡态和准费米能级}
         \begin{itemize}
             \item   $\mbox{准平衡}=\left\{
@@ -51,12 +52,25 @@
                 \end{aligned}
             \right.$
             \item 非平衡时没有统一$E_F$ 
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.5]{Ch5Pic0.png}
+				\caption{非平衡状态的费米能级}
+			\end {figure}
             $$            
             n = n_0 + \Delta n = N_c exp\left(-\frac{E_c - E_f^n}{k_B T}\right) = n_0 exp\left(\frac{E_f^n - E_f}{k_B T}\right)$$$$
             p = p_0 + \Delta p = N_v exp\left(-\frac{E_f^p - E_v}{k_B T}\right) = p_0 exp\left(\frac{E_f - E_f^p}{k_B T}\right)$$$$
             np = n_i^2 exp\left(-\frac{E_f^n - E_f^p}{k_B T}\right)$$
-            \item n型半导体中，$E_F^n$与$E_F$很接近，而$E_F^p$与$E_F$可以有显著差别，\newline
+            \item 
+			\begin{multicols}{2}
+			n型半导体中，$E_F^n$与$E_F$很接近，而$E_F^p$与$E_F$可以有显著差别，\newline
             {\large $E_F^n - E_F^p$} 反映了系统偏移热平衡的程度
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.65]{Ch5Pic1.png}
+				\caption{费米能级图}
+			\end {figure}
+			\end{multicols}
         \end{itemize}
         \end{spacing}
 
@@ -82,6 +96,11 @@
             \subsection{间接复合}
                 \begin{itemize}
                     \item   间接复合的四个基本过程
+						\begin {figure}[H]
+							\centering
+							\includegraphics[scale = 0.7]{Ch5Pic2.png}
+							\caption{间接复合的四个基本过程}
+						\end {figure}
                         \begin{itemize}
                             \item   甲:复合中心从导带得到电子\quad  电子俘获率 $= r_nn(N_t - n_t)$
                             \item   乙:导带从复合中心得到电子\quad 电子发射率   $ = s_-n_t$
@@ -97,6 +116,11 @@
                     $$ s_+ = r_p p_1, p_1 = N_Vexp\left(-\frac{E_t - E_V}{k_B T}\right)$$
                    $$\mbox{代入稳态条件}a + d = b + c, \mbox{得}$$
                    $$n_t = N_t\frac{r_n n + r_p p_1}{r_n(n + n_1) + r_p(p + p_1)},\quad U = \frac{N_t r_n r_p(n p - n_i^2)}{r_n(n + n_1) + r_p(p + p_1)}$$
+				   \begin {figure}[H]
+							\centering
+							\includegraphics[scale = 0.7]{Ch5Pic3.png}
+							\caption{费米能级与掺杂的关系}
+						\end {figure}
                 \end{itemize}
 \end{spacing}
 \begin{spacing}{2}

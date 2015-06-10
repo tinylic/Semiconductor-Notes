@@ -1,0 +1,40 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,mathpazo}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{float}
+\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{flowchart}
+\begin{document}
+
+\begin{CJK*}{GBK}{hei}
+\begin{spacing}{2}
+\title{\CJKfamily{kai}半导体中载流子的统计分布}
+\author{\CJKfamily{kai}复旦大学~~微电子学系\\13307130163\\\CJKfamily{kai}李琛}
+\maketitle
+\tableofcontents
+\newpage
+\end{spacing}
+\begin{spacing}{1.5}
+\section{状态密度}
+	\subsection{三维情况下的自由电子气}
+	\subsection{状态密度}
+	\subsection{费米分布函数}
+\section{费米能级与载流子的统计分布}
+\section{本征半导体的载流子分布}
+\section{杂质半导体的载流子分布}
+\section{简并半导体}
+\clearpage
+
+\end{spacing}
+\end{CJK*}
+\end{document}

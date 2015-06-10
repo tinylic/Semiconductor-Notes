@@ -9,6 +9,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz,mathpazo}
+\usepackage{multicol}
+\usepackage{float}
 \usetikzlibrary{shapes.geometric, arrows}
 %\usepackage{flowchart}
 \begin{document}
@@ -70,21 +72,65 @@
                     光学波：长波极限下，同一原胞两个不等价原子振动方向相反。\\
                     声子：格波能量量子化，作为玻色子处理，引入“声子”表示晶格振动能量量子化的单元，即晶格振动能量的量子。\\
                     对于Si，Ge等半导体只考虑纵声学波对电子的散射
-                    {\Large $\mu_s\propto T^{2/3}$}\\
-                    $T$ 越高，散射几率越大.
+                    $\mu_s\propto T^{2/3}$\\
+                    $T$ 越高，散射几率越大.\\
+					\begin{multicols}{2}
+					$\mbox{晶格振动波}\left\{
+					\begin{aligned}
+                    \mbox{
+					$\mbox{声学波}\left\{
+					\begin{aligned}
+						\mbox{横TA}\\
+						\mbox{纵LA}
+					\end{aligned}
+					\right.$}\\
+                     \mbox{
+					$\mbox{声学波}\left\{
+					\begin{aligned}
+						\mbox{横TO}\\
+						\mbox{纵LO}
+					\end{aligned}
+					\right.$}\\
+					\end{aligned}
+					\right.$
+					\begin {figure}[H]
+					\centering
+					\includegraphics[scale = 0.7]{Ch4Pic0.png}
+					\caption{晶格振动波}
+					\end {figure}
+					\end{multicols}
          \end{itemize}
     \section{迁移率、电阻率与杂质浓度和温度的关系}
         \begin{itemize}
             \item   当几种散射机构同时存在时，$P = \Sigma P_i \rightarrow \frac{1}{\tau} = \Sigma \frac{1}{\tau_i} \rightarrow \frac{1}{\mu} = \Sigma \frac{1}{\mu_i}$
             \item   同时考虑多种散射，$$\mu = q\frac{\tau}{m^{*}_{nc}} = \frac{q}{m^{*}}\frac{1}{AT^{3/2}+\frac{B N_i}{T^{3/2}}}$$
             \item 随着温度升高
+			\begin{multicols}{2}
             $$\begin{aligned}
                     \mu \approx \mu_N \propto N_n^{-1}\mbox{\quad 中性杂质散射}\Rightarrow \\
                     \mu \approx \mu_I \propto T^{3/2}/N_I\mbox{\quad 电离杂质散射}\Rightarrow \\
                     \mu \approx \mu_S \propto T^{-3/2}\mbox{\quad 声学杂质散射}\Rightarrow \\
                     \mu \approx \mu_O \propto exp\left(\frac{\bar h \omega}{k_B T} - 1\right)\mbox{\quad 光学杂质散射}
                 \end{aligned}$$
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.7]{Ch4Pic1.png}
+				\caption{迁移率与浓度的关系}
+			\end {figure}
+			\end{multicols}
             \item   低电场下，$V_d$与$E$成线性关系，但强电场下，$V_d$趋向于饱和。其解释是，在强电场下漂移速度趋向于热运动速度，相当于电子的有效温度增加，而在高温下以光学杂质散射为主，温度升高$V_d$趋向于饱和。
+			\begin{multicols}{2}
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.7]{Ch4Pic3.png}
+				\caption{迁移率、电导率与温度的关系}
+			\end {figure}
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.7]{Ch4Pic2.png}
+				\caption{电阻率与温度的关系}
+			\end {figure}
+			\end{multicols}
         \end{itemize}
     \section{霍尔效应}
         \begin{itemize}
