@@ -13,6 +13,8 @@
 \usepackage{multicol}
 \usetikzlibrary{shapes.geometric, arrows}
 %\usepackage{flowchart}
+\usepackage{multicol}
+\usepackage{float}
 \begin{document}
 
 \begin{CJK*}{GBK}{hei}
@@ -31,6 +33,11 @@
             \item   {\textbf{半导体的亲和能$\chi$}\quad 真空能级$E_0$和导带底$E_C$之间的能量差\quad $\chi = E_0 - E_C$\newline Si的电子亲和能：4.05eV}
             \item   金属的功函数和半导体的亲和能是固定的，但是半导体的功函数会随掺杂浓度不同而改变
         \end{itemize}
+		\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.9]{Ch7Pic0.png}
+				\caption{功函数示意图}
+			\end {figure}
     \subsection{接触电势差}
         \begin{itemize}
             \item   $D$很大时 接触电势差:\quad $\phi_{ms} = \phi_m - \phi_s = \frac{1}{q}(W_m - W_s)$
@@ -51,6 +58,11 @@
                 \end{aligned}
             \right.$
             \end{multicols} 
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.7]{Ch7Pic1.png}
+				\caption{金半接触能带图}
+			\end {figure}
            \item    金属-n型半导体的SBH:\quad$\phi_{Bn} = W_m - \chi$
            \newline 金属-p型半导体的SBH:\quad$\phi_{Bp} = E_g + \chi - W_m$
            \newline $\phi_{Bn} + \phi_{Bp} =E_g$, 对同一种金属，理想情况下n型半导体接触的表面势垒和p型半导体接触的表面势垒高度之和等于禁带宽度
@@ -64,6 +76,11 @@
             
         \end{itemize}
     \subsection{金半接触的静电特性}
+		\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.7]{Ch7Pic2.png}
+				\caption{外偏压下金半接触能带图}
+			\end {figure}
         前提假设：耗尽层近似,并用泊松方程求解
         $$\frac{d^2V}{dx^2}\left\{
                 \begin{aligned}
@@ -86,6 +103,11 @@
             $$\mbox{实验中一般}J_{SD} \propto T^{2}exp(\phi_B / k_B T)\mbox{即热电子发射}$$ 
         \end{itemize}
     \subsection{热电子发射电流}
+		\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.5]{Ch7Pic3.png}
+				\caption{热电子发射}
+		\end {figure}
         \begin{itemize}
             \item   适用于势垒宽度 $<<$ 电子平均自由程即$l_n >> d$
             \item   同时考虑势垒区扩散和漂移电流
@@ -97,12 +119,14 @@
             
         \end{itemize}
     \subsection{肖特基二极管与pn结二极管的比较}
+		\begin{multicols}{2}
         \begin{itemize}
             \item   较小的开启电压
             \item   较大反向电流
             \item   较低的击穿电压
             \item   多子器件，载流子无存储，多用于高频
         \end{itemize}
+		\end{multicols}
     \subsection{隧穿电流和镜象力的影响}
         \begin{itemize}
             \item   {\textbf{镜像力}\quad 镜象力使势垒高度降低,在反向电压较高时比较重要

@@ -122,11 +122,23 @@
     \subsection{非平衡pn结能带图}
         正偏压下，势垒降低，变窄；反偏压下，势垒升高，变宽\\
         一般只考虑正偏压：
+		\begin{multicols}{2}
             \begin{itemize}
                 \item   势垒高度降低为$q(V_D - V)$
                 \item   $I_{diff} > I_{drift}$，少子注入p区和n区
                 \item   不存在统一费米能级
             \end{itemize}
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.5]{Ch6Pic6.png}
+				\caption{正偏压下浓度的变化}
+			\end {figure}
+		\end{multicols}
+		\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.7]{Ch6Pic5.png}
+				\caption{正偏压下能带图}
+			\end {figure}
     \subsection{理想pn结的J-V特性}
         前提条件：
         \begin{itemize}
@@ -166,6 +178,7 @@
                 $$\mbox{温度升高，少子寿命降低，禁带宽度变小，都会导致$J_G$增加，即反向电流增加}$$
             \end{itemize}
         \subsubsection{大注入条件}
+			
             $$n_{n0} = N_D = n_i$$
             $$J_p = q \mu_p p_n(x_n) E(x_n) - q D_p \frac{d\Delta p_n(x)}{dx}$$
             $$J_n = q \mu_n n_n(x_n) E(x_n) + q D_n \frac{d\Delta n_n(x)}{dx}$$
@@ -175,9 +188,21 @@
             $$\because p_n n_n = n_i^2 exp(qV / k_B T), p_n \approx n_n$$
             $$\therefore p_n(x_n) = n_i exp(qV / 2k_B T)$$
             $$\therefore J_f = 2 q D_p \frac{n_i}{L_p} exp(q V / 2 k_B T)$$
+			\begin{multicols}{2}
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.5]{Ch6Pic6.png}
+				\caption{正偏压下能带图}
+			\end {figure}
+			
             在$p^{+}n$结的大注入条件下，电子的扩散电流与漂移电流大小相等，方向相反而相互抵消；\\
             在正向电流密度中，空穴扩散电流和空穴漂移电流大小相等，方向相同，使得总空穴电流是扩散电流的两倍。
-
+			\end{multicols}
+			\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.9]{Ch6Pic8.png}
+				\caption{非理想pn结总结}
+			\end {figure}
 \section{pn结电容}
     \subsection{势垒电容}
         产生原因：空间电荷区厚度发生变化
@@ -214,6 +239,11 @@
     \textbf{雪崩击穿具有正的温度系数}\quad 随着温度的增加，半导体晶格振动加强，载流子与晶格碰撞几率增加，从而因碰撞而损失的能量也就增加。因此要达到碰撞所需的能量，必须有更强的电场。
     \subsection{齐纳击穿}
     在两边都重掺杂的pn结中是主要的击穿机制。当反向偏压很高时，p区的价带顶高于N区的导带底。当价带电子所需越过的势垒宽度$d = Eg/qE$ 时，价带电子可以直接隧穿到导带
+	\begin {figure}[H]
+				\centering
+				\includegraphics[scale = 0.9]{Ch6Pic9.png}
+				\caption{齐纳击穿}
+			\end {figure}
     $$\mbox{隧穿几率}P = exp\left[-\frac{8\pi}{3}\left(\frac{2 m_n^{*}}{h^2}\right)^{1/2} E_g^{1/2}\Delta x\right]$$
     $$\mbox{其中}\Delta x =  \frac{E_g}{q}\left(\frac{2\varepsilon_0 \varepsilon_r}{q}\frac{1}{N_{eff}V_r}\right) ^ {1/2},N_{eff} = \frac{N_D N_A}{N_D + N_A}$$
     \subsection{两种击穿比较}
