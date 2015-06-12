@@ -11,7 +11,9 @@
 \usepackage{tikz,mathpazo}
 \usepackage{ulem}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage{float}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \usetikzlibrary{shapes.geometric, arrows}
 %\usepackage{flowchart}
 \begin{document}
@@ -27,28 +29,132 @@
 \begin{spacing}{1.5}
 \section{状态密度}
 	\subsection{三维情况下的自由电子气}
-		$$\varepsilon_{\vec{k}} = \frac{\hbar ^ 2}{2m} k ^ 2 = \frac{\hbar ^ 2}{2m}(k_x ^ 2 + k_y ^ 2 + k_z ^ 2), 
+		$$\varepsilon_{\vec{k}} = \frac{\hbar ^ 2}{2m} k ^ 2 = \frac{\hbar ^ 2}{2m}(k_x ^ 2 + k_y ^ 2 + k_z ^ 2),
 			k_x,k_y,k_z = 0;\pm\frac{2\pi}{L};...;\pm\frac{2n\pi}{L}$$
 		$$\mbox{每个量子态占据体积为}\frac{(2\pi)^3}{V}\quad\therefore\mbox{再考虑自旋，k空间能量状态密度为}\frac{2V}{(2\pi)^3}$$
 	\subsection{状态密度}
 		\begin{itemize}
 			\item	为了描述能带电子状态的分布，引入态密度$g(E)$表示单位能量间隔内的状态数
-			\item	
+			$$g(E) = \frac{dZ}{dE} = \frac{dZ}{d\Omega{*}} \frac{d\Omega^{*}}{dk} \frac{dk}{dE}$$
+			\item	状态密度汇总
+				\begin{itemize}
+					\item	一维\quad	$L^{*} = 2k \rightarrow 2\left(\frac{L}{2\pi}dL^{*}\right) \rightarrow dZ = \frac{2L}{h}\sqrt{\frac{2m_n^{*}}{E - E_0}} dE$
+							$$\rightarrow g(E) = \frac{2\pi}{h}\sqrt{\frac{2 m_n^{*}}{E - E_0}}$$
+					\item	二维\quad	$S^{*} = \pi k^2 \rightarrow dZ = 2\left(\frac{L}{2\pi}\right) ^ 2 d S^{*}$
+							$$\rightarrow g(E) = \frac{4 S \pi m_n^{*}}{h ^ 2}$$
+					\item	三维\quad	$\Omega^{*} = \frac{4}{3} \pi k^3 \rightarrow dZ = \frac{2V}{(2\pi)^3}\frac{4\pi}{\hbar^3}(2m_n^{*})^{3/2}(E - E_0)^{1/2}dE $
+					$$\rightarrow g(E) = \frac{4\pi V}{h^3}(2m_n^{*})^{3/2}\sqrt{E - E_0}$$
+				\end{itemize}
+			\item	状态密度有效质量
+				\begin{itemize}
+					\item	电子状态密度有效质量\quad导带极值在$\vec{k} = \vec{k_c}$,等能面为椭球面
+							$$2m_{dn} ^ {3/2} = M(8m_x^{*}m_y^{*}m_z^{*})^{1/2} \Rightarrow m_{dn} = (M^2m_l^{*}m_t^{*2})^{1/3}$$
+					\item	空穴状态密度有效质量\quad 重空穴与轻空穴在价带顶简并
+							$$(m_{dV}^{*})^{3/2} = (m_{lh}^{3/2} + m_{hh}^{3/2}) \Rightarrow (m_{dV}^{*}) = (m_{lh}^{3/2} + m_{hh}^{3/2})^{2/3}$$
+				\end{itemize}
 		\end{itemize}
 
 \section{费米能级与载流子的统计分布}
 	\subsection{费米分布函数}
+		\begin{itemize}
+			\item	\textbf{费米分布函数f(E)}\quad $f(E) = \frac{1}{1 + exp\left(\frac{E - E_f}{kT}\right)}$
+			\item	\textbf{玻尔兹曼分布函数f(E)}$(E - E_f) >> kT\quad f(E) = \frac{1}{exp\left(\frac{E - E_f}{kT}\right)}$
+			\item	\textbf{费米能级的物理意义}\quad	标志了电子填充水平
+			\item	$f_e(E) + f_h(E)  = exp\left(-\frac{E - E_f}{kT}\right) + exp\left(-\frac{E_f - E}{kT}\right) = 1$
+		\end{itemize}
+		\begin {figure}[H]
+			\centering
+			\includegraphics[scale = 0.7]{Ch3Pic0.png}
+			\caption{不同半导体的费米能级}
+		\end {figure}
 	\subsection{导带电子和价带空穴浓度}
+		$$\mbox{导带有效状态密度}N_c = \frac{2(2\pi m_{dn}kT)^{3/2}}{h^3}$$
+		$$\mbox{导带平衡电子浓度}n = N_c exp \left(-\frac{E_c - E_f}{k_BT}\right)$$
+		$$\mbox{价带有效状态密度}N_v = \frac{2(2\pi m_{dp}kT)^{3/2}}{h^3}$$
+		$$\mbox{价带平衡电子浓度}p = N_v exp \left(-\frac{E_f - E_v}{k_BT}\right)$$
+		$$\therefore n p = N_c N_v exp\left(-\frac{E_c - E_v}{k_BT}\right) = N_c N_v exp\left(-\frac{E_g}{k_BT}\right),
+			\mbox{浓度乘积与$E_F$无关}$$
 \section{本征半导体的载流子分布}
+	热激发产生的载流子\\
+	
 	\subsection{本征载流子浓度}
+		$$\mbox{电中性条件：}n \cdot p = n_i^2$$
+		$$n = p = n_i = \sqrt{N_c N_v} exp \left(-\frac{E_g}{2 k_B T}\right)$$
 	\subsection{本征载流子的费米能级}
+		$$E_f = \frac{E_c + E_v}{2} + \frac{k_B T}{2}ln\left(\frac{N_v}{N_c}\right)$$
+		$$\frac{E_c + E_v}{2} >> \frac{k_B T}{2}ln\left(\frac{N_v}{N_c}\right), \therefore
+		\mbox{本征费米能级$E_i$基本上在禁带中线处}$$
 \section{杂质半导体的载流子分布}
+	\begin{multicols}{2}
+		电子占据施主能级的几率
+		$$f_D(E) = \frac{1}{1 + \frac{1}{2}exp\left(\frac{E_D - E_f}{kT}\right)}$$
+		\qquad空穴占据受主能级的几率
+		$$f_A(E) = \frac{1}{1 + \frac{1}{2}exp\left(\frac{E_f - E_A}{kT}\right)}$$
+	\end{multicols}
 	\subsection{非补偿情形}
+		$$n = p + n_D^{+}$$
+		即导带电子浓度 = 价带空穴浓度 + 电离施主浓度
+		$$N_c exp \left(-\frac{E_c - E_f}{k_BT}\right) = N_v exp \left(-\frac{E_f - E_v}{k_BT}\right)
+			+ \frac{N_D}{1 + 2 exp\left(-\frac{E_D - E_f}{k_B T}\right)}$$
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline	非补偿情形	& 电中性条件 & 电子浓度 & 费米能级 \\
+			\hline	低温弱电离区 & $n_0 = n_D^{+}$ &
+			$n_0 = \left(\frac{N_D N_C}{2}\right)^{1/2} exp \left(-\frac{E_C - E_D}{2 k_B T}\right)$ &
+			$E_F = \frac{E_C + E_D}{2} + \frac{k_B T}{2} ln \frac{N_D}{2 N_C}$ \\
+			\hline	强电离区 & $n_0 = n_D^{+}$ & $n_0 = N_D$ &
+			$E_F = E_C + k_B T ln \frac{N_D}{N_C}$ \\
+			\hline	过渡区 & $n_0 = p_0 + N_D$ & $n_0 = N_D + \frac{n_i^2}{N_D}$ &
+			$E_F = E_i + k_B T sinh ^{-1} \left(\frac{N_D}{2n_i}\right)$ \\
+			\hline	本征区 & $n_0 = p_0 = n_i$ & $n_0 = n_i$ &
+			$E_F = \frac{E_C + E_V}{2} + \frac{k_B T}{2} ln \frac{N_V}{N_C}$\\
+			\hline
+		\end{tabular}
+
 	\subsection{补偿情形}
+		若半导体中同时含有施主、受主杂质，且施主杂质多于受主杂质，低温下，施主杂质将首先填充受主杂质，称为补偿\\
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline	$N_D > N_A$	& 电中性条件 & 电子浓度 & 费米能级 \\
+			\hline	\multirow{2}{*}{低温弱电离区} & \multirow{2}{*}{$n_0 = n_D^{+} - p_A^{-}$} &
+			\tabincell{c}{$N_A >> n_0 :$\\$ n = \frac{N_C (N_D - N_A}{2N_A}) exp \left(-\frac{E_C - E_D}{ k_B T}\right)$} &
+			$E_F = E_D + k_B T ln \frac{N_D - N_A}{2 N_A}$ \\
+			& & \tabincell{c}{$N_A << n_0 :$\\$ n_0 = \left(\frac{N_D N_C}{2}\right)^{1/2} exp \left(-\frac{E_\Delta E_D}{2 k_B T}\right)$} &
+			$E_F = \frac{E_C + E_D}{2} + \frac{k_B T}{2} ln \frac{N_D}{2 N_C}$ \\
+			\hline	强电离区 & $n_0 = N_D - N_A$ & $n_0 = N_D - N_A$ &
+			$E_F = E_C + k_B T ln \frac{N_D - N_A}{N_C}$ \\
+			\hline	过渡区 & $n_0 = p_0 + N_D - N_A$ & {\small \tabincell{c}{$n_0 = \frac{N_D - N_A}{2} + $\\$
+			\frac{1}{2}[(N_D - N_A) ^ 2 + 4 n_i ^ 2]^{1/2}$}}	 &
+			{\small$E_F = E_i + k_B T sinh ^{-1} \left(\frac{N_D - N_A}{2n_i}\right)$} \\
+			\hline	本征区 & $n_0 = p_0 = n_i$ & $n_0 = n_i$ &
+			$E_F = E_i$\\
+			\hline
+		\end{tabular}
+		\begin{multicols}{2}
+		\begin {figure}[H]
+			\centering
+			\includegraphics[scale = 0.5]{Ch3Pic1.png}
+			\caption{浓度随温度变化曲线}
+		\end {figure}
+		\begin {figure}[H]
+			\centering
+			\includegraphics[scale = 0.65]{Ch3Pic2.png}
+			\caption{费米能级随温度变化曲线}
+		\end {figure}
+		\end{multicols}
 \section{简并半导体}
 	\subsection{简并的出现}
+		$E_f$在导带底或价带顶附近，或$E_f$进入导带或价带称为简并情形\newline此时玻尔兹曼近似不再成立。
 	\subsection{简并半导体的载流子浓度}
+	$$\mbox{费米积分}F_{1/2}(\xi) = \int_0^\infty \frac{x ^ {1/2}}{1 + exp(x - \xi)}dx$$
+	$$	n_0 = N_C \frac{2}{\sqrt{\pi}}F_{1/2}\left(\frac{E_f - E_c}{k_BT}\right)\quad
+		p_0 = N_V \frac{2}{\sqrt{\pi}}F_{1/2}\left(\frac{E_v - E_f}{k_BT}\right)$$
 	\subsection{简并条件}
+		$\left\{
+                \begin{aligned}
+                    &\mbox{非简并\quad}E_C - E_f > 2 k T\quad \\
+                    &\mbox{弱简并\quad}0 < E_C - E_f \le 2 k T \quad \\
+					&\mbox{强简并\quad} E_c - E_f \le 0
+                \end{aligned}
+            \right.$
 \clearpage
 
 \end{spacing}
