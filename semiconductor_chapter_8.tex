@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,mathpazo}
+\usepackage{ulem}
+\usepackage{multicol}
+\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{flowchart}
+\usepackage{multicol}
+\usepackage{float}
+\begin{document}
+
+\begin{CJK*}{GBK}{hei}
+\begin{spacing}{2}
+\title{\CJKfamily{kai}半导体表面与MIS结构}
+\author{\CJKfamily{kai}复旦大学~~微电子学系\\13307130163\\\CJKfamily{kai}李琛}
+\maketitle
+\tableofcontents
+\newpage
+\end{spacing}
+\begin{spacing}{1.5}
+\section{半导体表面态}
+	\subsection{理想表面}
+		理想表面的薛定谔方程有两组解，一组对应无限周期场，一组对应表面态
+		$$\varphi_1(x) = A exp \left\{\frac{[2 m_0 (v_0 - E)] ^ (1/2)}{\hbar} x\right\} (x \le 0)$$
+		波函数在表面指数衰减，说明电子主要分布在表面附近\\
+		每个表面原子对应禁带中一个表面能级，这些能级组成表面能带\\
+		\textbf{悬挂键}\quad 在表面的最外层的硅原子有一个未配对的电子,与之对应的就是表面态。
+	\subsection{实际表面}
+		\begin{itemize}
+			\item	\textbf{清洁表面}\quad 超高真空下解理，有重构现象.
+			\item	\textbf{真实表面}\quad 天然氧化层,界面态 $10 ^ {10} ~ 10 ^ {12} cm^{-2}$\\
+					空态下施主型俘获电子后呈电中性，受主型俘获电子后呈负电荷态
+			\item	\textbf{界面}
+				\begin{multicols}{2}
+					\begin{itemize}
+						\item	不同导电类型\quad Si pn结（同质结）
+						\item	不同半导体\quad		异质结
+						\item	金属-半导体\quad	肖特基接触、欧姆接触
+						\item	M - O - S\quad	MOSFET
+						\item	晶粒间界\quad	多晶结构
+					\end{itemize}
+				\end{multicols}
+		\end{itemize}
+\section{表面电场效应}
+	\subsection{空间电荷层}
+	\subsection{表面静电特性}
+	\subsection{表面层的五种基本状态}
+\section{MIS结构C-V特性}
+	\subsection{MIS电容结构能带图}
+	\subsection{理想MIS结构C-V特性}
+	\subsection{实际MIS结构C-V特性}
+\section{$Si -Sio_2$系统性质}
+\section{表面电导与迁移率}
+\section{表面电场的影响}
+\clearpage
+
+\end{spacing}
+\end{CJK*}
+\end{document}
