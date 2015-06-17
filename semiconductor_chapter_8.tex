@@ -51,15 +51,106 @@
 		\end{itemize}
 \section{表面电场效应}
 	\subsection{空间电荷层}
+		MIS结构实际上就是电容，$Q_m = - Q_s$，但半导体中自由载流子浓度低得多，对应$Q_s$的电荷量需要分布在一定厚度的表面层内，这个带电的表面层即为空间电荷层\\
+		\textbf{表面势$V_s$}\quad	空间电荷层两端的电势差，表面比内部高为正\\
+		电势沿电力线方向减小，而能带为电势乘以$-q$\\
+		\begin {figure}[H]
+			\centering
+			\includegraphics[scale = 0.7]{Ch8Pic0.png}
+			\caption{表面势与能带的关系}
+		\end {figure}
+		\begin {figure}[H]
+			\centering
+			\includegraphics[scale = 0.5]{Ch8Pic1.png}
+			\caption{可能的热平衡MIS结构的能带图}
+		\end {figure}
+		利用泊松方程与玻尔兹曼统计，可以解出电容\\
+		一维情况下的P型半导体
+		$$\left\{
+                \begin{aligned}
+                    &\frac{d^2V(x)}{dx^2} = -\frac{\rho(x)}{\varepsilon_s}\\
+					&n_p = n_{p0}exp(qV/k_B T), p_p = p_{p0}exp(qV/k_B T)
+                \end{aligned}
+		\right.$$
+		$$\mbox{解得}E(x) = \pm \frac{2kT}{qL_D}F(\frac{qV(x)}{kT}, \frac{n_{p0}}{p_{p0}})$$
+		$$F\left(\frac{qV(x)}{kT}, \frac{n_{p0}}{p_{p0}}\right) = 
+		\left\{\left[exp\left(-\frac{qV}{kT}\right) + \frac{qV}{kT} - 1\right] +
+		\frac{n_{n0}}{p_{p0}}\left[exp\left(\frac{qV}{kT}\right) - \frac{qV}{kT} - 1\right]\right\}^{1/2}$$
+		$$\mbox{德拜长度}L_D = \left(\frac{2\varepsilon_s k_B T}{q ^ 2 p_{p0}}\right)^{1/2} $$
+		$$C_s = \big|\frac{dQ_s}{dV_s}\big| = 
+		\frac{\varepsilon_s}{L_D}\frac{\left[-exp\left(-\frac{qV_s}{kT}\right) + 1\right] +
+		\frac{n_{n0}}{p_{p0}}\left[exp\left(\frac{qV_s}{kT}\right) - 1\right]}{F(\frac{qV(x)}{kT}, \frac{n_{p0}}{p_{p0}})}$$
 	\subsection{表面静电特性}
+		$$E_s = \pm \frac{2kT}{qL_D}F(\frac{qV_s}{kT}, \frac{n_{p0}}{p_{p0}})$$
+		$$Q_s = -\varepsilon_s E_s = \mp \frac{2\varepsilon_s k T}{q L_D} F\left(\frac{qV(x)}{kT}, \frac{n_{p0}}{p_{p0}}\right)$$
 	\subsection{表面层的五种基本状态}
+		\begin {figure}[H]
+			\centering
+			\includegraphics[scale = 0.6]{Ch8Pic2.png}
+			\caption{表面层的五种基本状态}
+		\end {figure}
+		$$Q_s \propto E_s \propto F\left(\frac{qV(x)}{kT}, \frac{n_{p0}}{p_{p0}}\right) = 
+		\left\{\left[exp\left(-\frac{qV}{kT}\right) + \frac{qV}{kT} - 1\right] +
+		\frac{n_{n0}}{p_{p0}}\left[exp\left(\frac{qV}{kT}\right) - \frac{qV}{kT} - 1\right]\right\}^{1/2}$$
+		\subsubsection{积累}
+			$$Q \propto exp\left(-\frac{q V_s}{2 k T}\right)$$
+		\subsubsection{平带}
+			$$Q = 0, C_{FBS} = \lim\limits_{V_s \to 0}{\frac{d Q_s}{d V_s}} = \frac{\sqrt{2}\varepsilon_s}{L_D} \left(1 + \frac{n_{p0}}{p_{p0}}\right)^{1/2} \approx \frac{\sqrt{2}\varepsilon_s}{L_D}$$
+		\subsubsection{耗尽}
+			也可用耗尽层近似求解
+			$$ F\left(\frac{qV(x)}{kT}, \frac{n_{p0}}{p_{p0}}\right) = \left(\frac{q V_s}{k T}\right) ^ {1/2} \Rightarrow
+			Q_s = - \frac{2 \varepsilon_s k T}{q L_D}\left(\frac{q V_s}{k T}\right) ^ {1/2}$$
+		\subsubsection{弱反型}
+			$$Q_s = - \frac{2 \varepsilon_s k T}{q L_D}\left(\frac{q V_s}{k T}\right) ^ {1/2}$$
+		\subsubsection{强反型}
+			$$Q_s \propto exp\left(\frac{q V_s}{2 k T}\right)$$
+		\begin {figure}[H]
+			\centering
+			\includegraphics[scale = 0.6]{Ch8Pic3.png}
+			\caption{F函数与电势的关系}
+		\end {figure}
 \section{MIS结构C-V特性}
-	\subsection{MIS电容结构能带图}
+	\begin {figure}[H]
+			\centering
+			\includegraphics[scale = 0.55]{Ch8Pic4.png}
+			\caption{电荷随$V_G$的变化}
+	\end {figure}
 	\subsection{理想MIS结构C-V特性}
+		\textbf{理想条件}\quad 假设在绝缘层中和绝缘层与半导体的界面不存在电荷，也不存在界面态，并且栅电压V=0时半导体中不存在电场，能带是平直的。
+		$$\frac{1}{C} = \frac{1}{C_{ox}} + \frac{1}{C_S},C_{ox} = \frac{\varepsilon_{ox}}{d_{ox}}\mbox{为氧化层电荷，是常数}$$
+		\subsubsection{积累}
+			$$C_s = \frac{\varepsilon_s}{L_D} exp\left(-\frac{q V_s}{2 k_B T}\right) > > C_{ox} \Rightarrow C = C_{ox}$$
+		\subsubsection{平带}
+			$$C_{FBS} \approx \frac{\sqrt{2} \varepsilon_s}{L_D} \Rightarrow
+			C = \frac{C_{ox}}{1 + \frac{\varepsilon_{ox}}{d_{ox}}\left(\frac{k_B T}{q^2 N_A \varepsilon_s}\right)^{1/2}}$$
+		\subsubsection{耗尽}
+			$$C_s \approx \frac{\varepsilon_s}{L_D} \sqrt{\frac{k_B T}{q V_s}} = \sqrt{\frac{q N_A \varepsilon_s}{2 V_s}}\Rightarrow
+			C \approx \frac{C_{ox}}{1 + \sqrt{\frac{2 C_{ox} ^ 2}{q \varepsilon_s N_A}(V_G - V_{FB})}}$$
+		\subsubsection{强反型}
+			$$C_s \approx \frac{\varepsilon_s}{L_D}\sqrt{\frac{n_{p0}}{p_{p0}}}exp\left(\frac{q V_s}{2 k_B T}\right) >> C_{ox}\Rightarrow C = C_{ox}$$
+		\begin {figure}[H]
+			\centering
+			\includegraphics[scale = 0.6]{Ch8Pic5.png}
+			\caption{理想MIS C-V特性}
+		\end {figure}
 	\subsection{实际MIS结构C-V特性}
+		\begin{itemize}
+			\item	\textbf{功函数的影响}\quad	将图像向右平移$V_{ms}$
+			\item	\textbf{平带电压的影响}\quad	将图像向右平移$V_{FB}$
+			\item	\textbf{界面态的影响}\quad绝缘层和半导体界面处的电子能级称为界面态。能级处于禁带之中，是一个连续分布的界面态。\\
+			$N_{ss}(E)$为界面态密度的分布函数。\\
+			界面态电容与表面电容是并联的
+			$$\frac{1}{C} = \frac{1}{C_{ox}} + \frac{1}{C_S + C_{Nss}}, C_{Nss} = q^2 N_{ss}(E)$$
+		\end{itemize}
 \section{$Si -Sio_2$系统性质}
-\section{表面电导与迁移率}
-\section{表面电场的影响}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item	界面陷阱电荷（快界面态）\quad$Q_{it}$
+			\item	氧化层中固定电荷 \quad$Q_f$
+			\item	氧化层中可动电荷 \quad$Q_m$
+			\item	氧化层中陷阱电荷 \quad$Q_{ot}$
+		\end{itemize}
+	\end{multicols}
 \clearpage
 
 \end{spacing}
