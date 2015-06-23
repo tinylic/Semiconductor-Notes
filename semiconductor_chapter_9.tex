@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,mathpazo}
+\usepackage{ulem}
+\usepackage{multicol}
+\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{flowchart}
+\usepackage{multicol}
+\usepackage{float}
+\begin{document}
+
+\begin{CJK*}{GBK}{hei}
+\begin{spacing}{2}
+\title{\CJKfamily{kai}异质结}
+\author{\CJKfamily{kai}复旦大学~~微电子学系\\13307130163\\\CJKfamily{kai}李琛}
+\maketitle
+\tableofcontents
+\newpage
+\end{spacing}
+\begin{spacing}{1.5}
+\begin{itemize}
+	\item	\textbf{异质结}\quad 两种不同半导体材料构成的结\\
+	\item	\textbf{异质结的形成条件}\quad相同的晶体结构和相近的晶格常数
+\end{itemize}
+\section{异质结的分类}
+	$\left\{
+		\begin{aligned}
+			&\mbox{同型异质结：导电类型相同\quad n-n结\quad p-p结}\\
+			&\mbox{异型异质结，导电类型不同\quad p-n结\quad n-p结\quad(禁带窄的写在前面)}\\
+		\end{aligned}
+	\right.$
+\section{异质结的能带图}
+	\begin{itemize}
+		\item	两侧费米能级水平
+		\item	真空能级连续且平行于能带边缘，即$\Delta E_c \Delta E_v$不变
+		\item	能带弯曲，在界面处不连续，形成尖峰与凹口
+		\item	由于介电常数不同，内建电场不连续
+		\item	\textbf{巴丁极限}\quad 考虑表面态，费米能级位于禁带宽度约1/3处
+	\end{itemize}
+\section{空间电荷区和电容}
+	$$\because \varepsilon_W \cdot E_1 = \varepsilon_N \cdot E_2, N_D \cdot X_W = N_A \cdot X_N$$
+	$$\therefore V_{DW} = \frac{1}{2} X_W \frac{e N_D X_W}{\varepsilon_W \varepsilon_0}\mbox{(宽带情况)}$$
+	$$\therefore V_{DN} = \frac{1}{2} X_N \frac{e N_D X_N}{\varepsilon_N \varepsilon_0}\mbox{(窄带情况)}$$
+	$$\mbox{令约化介电常数}\varepsilon^{*} = \frac{\varepsilon_N \varepsilon_W(N_A + N_D)}{\varepsilon_W N_D + \varepsilon_N N_A}
+	\quad \mbox{约化杂质浓度}N^{*} = \frac{N_A N_D}{N_A + N_D}$$	
+	$$\mbox{空间电荷区宽度}X = X_W + X_N = [\frac{2\varepsilon^{*}\varepsilon_0(V_D - V)}{e N^{*}}]^{1/2}$$
+	$$\mbox{电容}C = \frac{1}{\frac{1}{C_W} + \frac{1}{C_N}} = \frac{\varepsilon^{*}\varepsilon_0}{X}$$
+\clearpage
+
+\end{spacing}
+\end{CJK*}
+\end{document}
