@@ -107,11 +107,11 @@
                             \item   丙:价带从复合中心得到电子\quad  空穴俘获率   $ = r_ppn_t$
                             \item   丁:复合中心从价带得到电子\quad  空穴发射率   $ = s_+(N_t - n_t)$
                         \end{itemize}
-                    \item   稳态时，满足$E_t$上的电子书$n_t$不变\newline
+                    \item   稳态时，满足$E_t$上的电子数$n_t$不变\newline
                         $a + d = b + c, \mbox{复合率}U = a - b = c - d$
                     \item $s_-, s_+$均为常数，可用平衡时参数求得
                     \item   热平衡时，$$a = b, c = d$$$$
-                    s_-n_t = r_n n_0(N_t - n_t), n_t =\frac{N_t}{1 + exp\left(-\frac{E_t - E_F}{k_B T}\right)}$$
+                    s_-n_t = r_n n_0(N_t - n_t), n_t =\frac{N_t}{1 + exp\left(\frac{E_t - E_F}{k_B T}\right)}$$
                     $$\therefore s_- = r_n n_1, n_1 = N_C exp\left(-\frac{E_C - E_t}{k_B T}\right)$$
                     $$ s_+ = r_p p_1, p_1 = N_Vexp\left(-\frac{E_t - E_V}{k_B T}\right)$$
                    $$\mbox{代入稳态条件}a + d = b + c, \mbox{得}$$
@@ -166,16 +166,43 @@
                 \end{itemize}
 \end{spacing}
 \begin{spacing}{1.5}
-            \section{其他内容}
-                \begin{itemize}
-                \item   爱因斯坦关系（扩散系数与迁移率的关系） $D =  \frac{kT}{e}\mu$\newline
-                        成立条件:平衡，非简并
-                \item   双极扩散:两种载流子扩散和漂移运动的差异，会使电场分布发生一定的变化，电场的变化可通过漂移影响两种载流子的运动，并使两种过剩载流子保持同步，不过当两种载流子数量相差悬殊的情况下，电场分布的变化对于少子运动产生的影响可以忽略不计。
-                \item   丹倍效应:由双极扩散中，由于两种载流子的扩散系数不同，在有过剩载流子时，样品中将存在电场，称为丹倍电场，该电场在光照表面和背面建立电势差，称为丹倍电势差，这种效应即丹倍效应。
-                    \newline 来源:\quad   电子与空穴不同步，电子比空穴快
-                    \newline 作用:\quad   降低电子扩散，加速空穴扩散
-                \end{itemize}
-
+\section{其他内容}
+	\begin{itemize}
+		\item   爱因斯坦关系（扩散系数与迁移率的关系） $D =  \frac{kT}{e}\mu$\newline
+				成立条件:平衡，非简并
+		\item   双极扩散:两种载流子扩散和漂移运动的差异，会使电场分布发生一定的变化，电场的变化可通过漂移影响两种载流子的运动，并使两种过剩载流子保持同步，不过当两种载流子数量相差悬殊的情况下，电场分布的变化对于少子运动产生的影响可以忽略不计。
+		\item   丹倍效应:由双极扩散中，由于两种载流子的扩散系数不同，在有过剩载流子时，样品中将存在电场，称为丹倍电场，该电场在光照表面和背面建立电势差，称为丹倍电势差，这种效应即丹倍效应。
+		\newline 来源:\quad   电子与空穴不同步，电子比空穴快
+		\newline 作用:\quad   降低电子扩散，加速空穴扩散
+	\end{itemize}
+\section{连续性方程}
+	$$\frac{\partial p}{\partial t} = D_p \frac{\partial ^ 2 p}{\partial x ^ 2} + g_0 - \mu_p E \frac{\partial p}{\partial x} -
+	\mu_p p \frac{\partial E}{\partial x} - \frac{\Delta p}{\tau}$$
+	简化条件：
+	\begin{itemize}
+		\item	\textbf{稳态}\quad $\frac{\partial p}{\partial t} = 0$
+		\item	\textbf{无电场}\quad $E = 0\quad \frac{\partial E}{\partial x} = 0$
+		\item	\textbf{电场分布均匀}\quad $\frac{\partial E}{\partial x} = 0$
+		\item	\textbf{载流子分布均匀}\quad $\frac{\partial p}{\partial x} = 0\quad \frac{\partial ^ 2 p}{\partial x ^ 2} = 0$
+	\end{itemize}
+	特殊情况：
+	\begin{itemize}
+		\item	\textbf{光激发}\quad $E = 0\quad \frac{\partial E}{\partial x} = 0\quad g_p = 0 \quad
+			\frac{\partial p}{\partial x} = 0\quad \frac{\partial ^ 2 p}{\partial x ^ 2} = 0
+			\Rightarrow \frac{\partial p}{\partial t} = -\frac{\Delta p}{\tau}$
+		\item	\textbf{瞬时光脉冲}\quad $E = 0 \quad \frac{\partial E}{\partial x} = 0 \quad g_p = 0
+			\Rightarrow \frac{\partial p}{\partial t} = D_p \frac{\partial ^ 2 p}{\partial x ^ 2} - \frac{\Delta p}{\tau}$
+		\item \textbf{瞬时电脉冲}\quad$E \ne 0\quad \frac{\partial E}{\partial x} = 0 \quad g_p = 0
+			\Rightarrow \frac{\partial p}{\partial t} = D_p \frac{\partial ^ 2 p}{\partial x ^ 2} 
+			- \mu_p E \frac{\partial p}{\partial x} - \frac{\Delta p}{\tau}$
+		\item \textbf{表面光照恒定+稳态}\quad$\frac{\partial p}{\partial t} = 0 \quad 
+			\frac{\partial E}{\partial x} = 0 \quad g_p = 0
+			\Rightarrow D_p \frac{\partial ^ 2 p}{\partial x ^ 2} - \mu_p E \frac{\partial p}{\partial x}
+			- \frac{\Delta p}{\tau} = 0$
+		\item \textbf{稳定条件下复合}\quad $E = 0\quad \frac{\partial E}{\partial x} = 0 \quad
+			\frac{\partial p}{\partial x} = 0 \quad \frac{\partial p}{\partial t} = 0
+			\Rightarrow  D_p \frac{\partial ^ 2 p}{\partial x ^ 2} - g_p - \frac{\Delta p}{\tau} = 0$
+	\end{itemize}
 \clearpage
 
 \end{spacing}
