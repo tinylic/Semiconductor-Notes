@@ -6,8 +6,8 @@
 *.fls
 *.out
 *.toc
-*.sav
-
+*.tex.sav
+*.tex.bak
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
