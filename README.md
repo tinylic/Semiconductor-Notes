@@ -1,1 +1,2 @@
-basic tips about semiconductor<br /\>for better review
+Lecture Notes for *Semiconductor Physics*
+Undergraduate Course INFO130022 at Fudan University.
